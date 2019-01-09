@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
+using MahApps.Metro.Controls.Dialogs;
 using Unity;
 using WpfProjectTemplate.ViewModels;
 
@@ -25,6 +26,9 @@ namespace WpfProjectTemplate
 
         protected override void Configure()
         {
+            _container.RegisterSingleton<IEventAggregator, EventAggregator>();
+            _container.RegisterInstance(DialogCoordinator.Instance);
+            _container.RegisterSingleton<IWindowManager, WindowManager>();
             base.Configure();
         }
 
