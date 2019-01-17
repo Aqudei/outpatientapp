@@ -1,12 +1,12 @@
-﻿<Application x:Class="WpfProjectTemplate.App"
+﻿<Application x:Class="OutPatientApp.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WpfProjectTemplate">
+             xmlns:outPatientApp="clr-namespace:OutPatientApp">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
-                    <local:Bootstrapper x:Key="Bootstrapper"/>
+                    <outPatientApp:Bootstrapper x:Key="Bootstrapper"/>
                 </ResourceDictionary>
                 <!-- MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive! -->
                 <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />

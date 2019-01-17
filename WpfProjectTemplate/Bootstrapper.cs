@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
 using MahApps.Metro.Controls.Dialogs;
+using OutPatientApp.ViewModels;
 using Unity;
-using WpfProjectTemplate.ViewModels;
 
-namespace WpfProjectTemplate
+namespace OutPatientApp
 {
     class Bootstrapper : BootstrapperBase
     {
         private readonly IUnityContainer _container = new UnityContainer();
+
         public Bootstrapper()
         {
             Initialize();

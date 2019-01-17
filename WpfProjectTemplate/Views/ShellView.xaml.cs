@@ -1,4 +1,4 @@
-﻿namespace WpfProjectTemplate.Views
+﻿namespace OutPatientApp.Views
 {
     /// <summary>
     /// Interaction logic for ShellView.xaml

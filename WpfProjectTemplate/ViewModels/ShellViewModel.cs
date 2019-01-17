@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Caliburn.Micro;
 
-namespace WpfProjectTemplate.ViewModels
+namespace OutPatientApp.ViewModels
 {
-    class ShellViewModel
+    sealed class ShellViewModel : Conductor<object>.Collection.OneActive
     {
+        public ShellViewModel()
+        {
+           Items.Add(IoC.Get<PatientRegistrationViewModel>());
+        }
     }
 }
