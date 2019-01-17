@@ -3,10 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:OutPatientApp.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:local="clr-namespace:OutPatientApp.Views" Padding="8"
+             xmlns:cal="http://www.caliburnproject.org"
+             mc:Ignorable="d">
     <Grid>
-        <TextBlock x:Name="LastName"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="FullName" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2">Almine, Francis Deo</TextBlock>
+        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+            <Label FontSize="14">Birthday:</Label>
+            <TextBlock VerticalAlignment="Center" x:Name="Birthday" Text="December 1, 2019" FontSize="14"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="8,0,0,0">
+            <Label FontSize="14">Sex:</Label>
+            <TextBlock VerticalAlignment="Center" x:Name="Sex" Text="Male" FontSize="14"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Label FontSize="14">Birth Place:</Label>
+            <TextBlock VerticalAlignment="Center" x:Name="BirthPlace" Text="Catbalogan City" FontSize="14"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Label FontSize="14">Present Address:</Label>
+            <TextBlock VerticalAlignment="Center" x:Name="Address" Text="Purok 2, Brgy. Mercedes, Catbalogan City" FontSize="14"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0">
+            <Button Background="#FFFFABAB" cal:Message.Attach="Delete($dataContext)">Delete</Button>
+        </StackPanel>
     </Grid>
 </UserControl>

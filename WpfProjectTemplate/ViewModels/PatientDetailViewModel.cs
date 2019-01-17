@@ -10,11 +10,17 @@ namespace OutPatientApp.ViewModels
     class PatientDetailViewModel : Screen
     {
         private string _lastName;
-
+        public Guid Id { get; set; }
         public string LastName
         {
             get => _lastName;
             set => Set(ref _lastName, value);
         }
+
+        public string FullName { get; set; }
+        public DateTime Birthday { get; set; }
+        public string BirthPlace { get; set; }
+        public string Sex { get; set; }
+        public string Address { get; set; }
     }
 }

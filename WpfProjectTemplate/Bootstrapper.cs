@@ -35,8 +35,10 @@ namespace OutPatientApp
                 config.CreateMap<PatientRegistrationViewModel, Patient>()
                     .ForMember(m => m.LastUpdated, opts => opts.Ignore());
 
-                config.CreateMap<Patient, PatientDetailViewModel>();
+                config.CreateMap<Patient, PatientDetailViewModel>()
+                    .ForMember(m => m.FullName, opts => opts.MapFrom(p => $"{p.LastName}, {p.FirstName} {p.MiddleName}"));
             });
+
             _container.RegisterInstance(Mapper.Instance);
 
             base.Configure();

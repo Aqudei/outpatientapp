@@ -3,12 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:OutPatientApp.Views"
+             xmlns:local="clr-namespace:OutPatientApp.Views" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             mah:DialogParticipation.Register="{Binding}"
              mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <GroupBox Header="Out-Patient List">
             <Grid>
-                <ListView x:Name="Patients"/>
+                <ListView x:Name="Patients" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
             </Grid>
         </GroupBox>
     </Grid>
