@@ -8,11 +8,12 @@ namespace OutPatientApp.Models
 {
     class Visit : EntityBase
     {
-        public string Kin { get; set; }
-        public string Relationship { get; set; }
         public DateTime VisitDate { get; set; }
+
         public string Complaint { get; set; }
         public string Diagnosis { get; set; }
+
+        public string PatientType { get; set; }
 
         public Visit()
         {

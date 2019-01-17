@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using AutoMapper;
 using Caliburn.Micro;
 using MahApps.Metro.Controls.Dialogs;
+using OutPatientApp.Models;
 using OutPatientApp.ViewModels;
 using Unity;
 
@@ -27,6 +29,16 @@ namespace OutPatientApp
             _container.RegisterSingleton<IEventAggregator, EventAggregator>();
             _container.RegisterInstance(DialogCoordinator.Instance);
             _container.RegisterSingleton<IWindowManager, WindowManager>();
+
+            Mapper.Initialize(config =>
+            {
+                config.CreateMap<PatientRegistrationViewModel, Patient>()
+                    .ForMember(m => m.LastUpdated, opts => opts.Ignore());
+
+                config.CreateMap<Patient, PatientDetailViewModel>();
+            });
+            _container.RegisterInstance(Mapper.Instance);
+
             base.Configure();
         }
 

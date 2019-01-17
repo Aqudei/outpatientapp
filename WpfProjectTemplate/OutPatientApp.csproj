@@ -26,7 +26,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>https://raw.githubusercontent.com/Aqudei/outpatientapp/master/WpfProjectTemplate/publish/</InstallUrl>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -153,13 +153,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Extentions.cs" />
     <Compile Include="Models\EntityBase.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Visit.cs" />
     <Compile Include="Persistence\OPContext.cs" />
+    <Compile Include="ViewModels\PatientDetailViewModel.cs" />
     <Compile Include="ViewModels\PatientListViewModel.cs" />
     <Compile Include="ViewModels\PatientRegistrationViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Page Include="Views\PatientDetailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PatientListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -177,6 +183,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Views\PatientDetailView.xaml.cs">
+      <DependentUpon>PatientDetailView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PatientListView.xaml.cs">
       <DependentUpon>PatientListView.xaml</DependentUpon>
     </Compile>

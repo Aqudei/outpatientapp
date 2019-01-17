@@ -6,7 +6,8 @@ namespace OutPatientApp.ViewModels
     {
         public ShellViewModel()
         {
-           Items.Add(IoC.Get<PatientRegistrationViewModel>());
+            Items.Add(IoC.Get<PatientRegistrationViewModel>());
+            Items.Add(IoC.Get<PatientListViewModel>());
         }
     }
 }

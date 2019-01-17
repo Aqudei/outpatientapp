@@ -5,21 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OutPatientApp.Views"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="OutPatientApp.Views.PatientRegistrationView"
-        mc:Ignorable="d"
-        Height="450" Width="800" FontSize="16">
-    <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="59,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Last Name"/>
-        <TextBox HorizontalAlignment="Left" Margin="59,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="First Name"/>
-        <TextBox HorizontalAlignment="Left" Margin="59,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Middle Name"/>
-        <TextBox HorizontalAlignment="Left" Margin="59,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293"/>
-        <TextBox HorizontalAlignment="Left" Margin="59,282,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="688" mah:TextBoxHelper.Watermark="Address" Grid.RowSpan="2"/>
-        <ComboBox HorizontalAlignment="Left" Margin="454,58,0,0" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Sex"/>
-        <TextBox HorizontalAlignment="Left" Margin="454,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Place Of Birth"/>
-        <TextBox HorizontalAlignment="Left" Margin="454,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Next Of Kin"/>
-        <TextBox HorizontalAlignment="Left" Margin="454,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Relationship"/>
-        <DatePicker HorizontalAlignment="Left" Margin="59,221,0,0" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Birthday"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="672,382,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox HorizontalAlignment="Left" Margin="59,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="688" mah:TextBoxHelper.Watermark="Complaint/s"/>
+        mah:DialogParticipation.Register="{Binding}"    
+        mc:Ignorable="d" FontSize="16" d:DesignWidth="933.2" d:DesignHeight="463.6">
+    <GroupBox Header="Out-Patient Registration">
+        <Grid>
+            <TextBox x:Name="LastName" HorizontalAlignment="Left" Margin="33,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Last Name"/>
+            <TextBox x:Name="FirstName" HorizontalAlignment="Left" Margin="33,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="First Name"/>
+            <TextBox x:Name="MiddleName" HorizontalAlignment="Left" Margin="33,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Middle Name"/>
+            <TextBox x:Name="Address" HorizontalAlignment="Left" Margin="33,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="688" mah:TextBoxHelper.Watermark="Address"/>
+            <ComboBox x:Name="Sexes" HorizontalAlignment="Left" Margin="428,32,0,0" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Sex"/>
+            <TextBox x:Name="BirthPlace" HorizontalAlignment="Left" Margin="428,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Place Of Birth"/>
+            <TextBox x:Name="NextKin" HorizontalAlignment="Left" Margin="428,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Next Of Kin"/>
+            <TextBox x:Name="KinRelationship" HorizontalAlignment="Left" Margin="428,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Relationship"/>
+            <DatePicker x:Name="Birthday" HorizontalAlignment="Left" Margin="33,195,0,0" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Birthday"/>
+            <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="646,310,0,0" VerticalAlignment="Top" Width="75"/>
 
-    </Grid>
+        </Grid>
+    </GroupBox>
 </UserControl>
