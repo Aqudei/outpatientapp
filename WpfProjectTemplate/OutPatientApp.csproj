@@ -191,11 +191,16 @@
     <Compile Include="Persistence\OPContext.cs" />
     <Compile Include="Models\Checkup.cs" />
     <Compile Include="ViewModels\AddCheckupViewModel.cs" />
+    <Compile Include="ViewModels\CheckupListViewModel.cs" />
     <Compile Include="ViewModels\PatientDetailViewModel.cs" />
     <Compile Include="ViewModels\PatientListViewModel.cs" />
     <Compile Include="ViewModels\PatientRegistrationViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Page Include="Views\AddCheckupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CheckupListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -222,6 +227,9 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Views\AddCheckupView.xaml.cs">
       <DependentUpon>AddCheckupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CheckupListView.xaml.cs">
+      <DependentUpon>CheckupListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PatientDetailView.xaml.cs">
       <DependentUpon>PatientDetailView.xaml</DependentUpon>

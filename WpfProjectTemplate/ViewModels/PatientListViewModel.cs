@@ -45,7 +45,9 @@ namespace OutPatientApp.ViewModels
 
         public void ViewCheckups(PatientDetailViewModel patientVm)
         {
-
+            var dlg = IoC.Get<CheckupListViewModel>();
+            dlg.PatientId = patientVm.Id;
+            _windowManager.ShowDialog(dlg);
         }
 
 
