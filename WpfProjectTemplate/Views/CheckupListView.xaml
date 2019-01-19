@@ -8,20 +8,24 @@
         mc:Ignorable="d"
         Title="CheckupListView" FontSize="14">
     <Grid>
-        <DataGrid ItemsSource="{Binding Checkups}" IsReadOnly="True"
-                  CanUserAddRows="False"
-                  Margin="4"
-                  AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Complaint}" 
-                                    Header="Complaint"
-                                    Width="3*"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Diagnosis}" 
-                                    Header="Diagnosis"
-                                    Width="3*"></DataGridTextColumn>
-                <DataGridTextColumn IsReadOnly="True" Binding="{Binding DateOfCheckup, StringFormat=\{0:F\}}" Header="Date Of Checkup" Width="2*"></DataGridTextColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-
+        <GroupBox Header="Check-ups List">
+            <DataGrid ItemsSource="{Binding Checkups}" IsReadOnly="True"
+                      CanUserAddRows="False"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Complaint}"
+                                        Header="Complaint"
+                                        Width="3*">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Diagnosis}"
+                                        Header="Diagnosis"
+                                        Width="3*">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn IsReadOnly="True" Binding="{Binding DateOfCheckup, StringFormat=\{0:F\}}"
+                                        Header="Date Of Checkup" Width="2*">
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
     </Grid>
 </mah:MetroWindow>
