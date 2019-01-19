@@ -14,16 +14,19 @@ namespace OutPatientApp.ViewModels
     {
         private readonly IMapper _mapper;
         private readonly IDialogCoordinator _dialogCoordinator;
+        private readonly IWindowManager _windowManager;
 
         public override string DisplayName { get; set; } = "Out-Patient List";
 
         public BindableCollection<PatientDetailViewModel> Patients { get; set; }
             = new BindableCollection<PatientDetailViewModel>();
 
-        public PatientListViewModel(IMapper mapper, IDialogCoordinator dialogCoordinator)
+        public PatientListViewModel(IMapper mapper, IDialogCoordinator dialogCoordinator,
+            IWindowManager windowManager)
         {
             _mapper = mapper;
             _dialogCoordinator = dialogCoordinator;
+            _windowManager = windowManager;
         }
 
         protected override void OnViewReady(object view)
@@ -38,6 +41,19 @@ namespace OutPatientApp.ViewModels
             {
                 Patients.AddRange(db.Patients.ToList().Select(p => _mapper.Map<PatientDetailViewModel>(p)));
             }
+        }
+
+        public void ViewCheckups(PatientDetailViewModel patientVm)
+        {
+
+        }
+
+
+        public void AddCheckup(PatientDetailViewModel patientVm)
+        {
+            var dlg = IoC.Get<AddCheckupViewModel>();
+            dlg.PatientId = patientVm.Id;
+            _windowManager.ShowDialog(dlg);
         }
 
         public async void Delete(PatientDetailViewModel patient)

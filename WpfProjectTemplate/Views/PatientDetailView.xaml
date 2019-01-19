@@ -44,9 +44,9 @@
                           Background="#FFFFABAB" HorizontalAlignment="Right">Is In-Patient</mah:ToggleSwitch>
         <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Right">
             <Button Background="#FFFFABAB" cal:Message.Attach="Delete($dataContext)">Delete</Button>
-            <Button Background="#FFFFFFAB" cal:Message.Attach="Delete($dataContext)">Add Checkup</Button>
-            <Button Background="#FF85C7F5" cal:Message.Attach="Delete($dataContext)">View Checkups</Button>
-        
+            <Button Background="#FFFFFFAB" cal:Message.Attach="AddCheckup($dataContext)">Add Checkup</Button>
+            <Button Background="#FF85C7F5" cal:Message.Attach="ViewCheckups($dataContext)">View Checkups</Button>
+
         </StackPanel>
     </Grid>
 </UserControl>

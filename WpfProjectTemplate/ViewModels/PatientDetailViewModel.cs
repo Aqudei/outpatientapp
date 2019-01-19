@@ -10,6 +10,7 @@ namespace OutPatientApp.ViewModels
     class PatientDetailViewModel : Screen
     {
         private string _lastName;
+        private bool _isInPatient;
         public Guid Id { get; set; }
         public string LastName
         {
@@ -22,5 +23,11 @@ namespace OutPatientApp.ViewModels
         public string BirthPlace { get; set; }
         public string Sex { get; set; }
         public string Address { get; set; }
+
+        public bool IsInPatient
+        {
+            get => _isInPatient;
+            set => Set(ref _isInPatient, value);
+        }
     }
 }
