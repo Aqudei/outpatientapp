@@ -10,9 +10,12 @@ namespace OutPatientApp.Models
     {
         public Guid Id { get; set; }
 
+        public DateTime DateCreated { get; set; }
+
         public EntityBase()
         {
             Id = Guid.NewGuid();
+            DateCreated = DateTime.Now;
         }
 
         public override bool Equals(object obj)

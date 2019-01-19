@@ -13,7 +13,7 @@ namespace OutPatientApp.Persistence
         public OPContext() : base("OPContext")
         { }
 
-        public DbSet<Visit> Visits { get; set; }
+        public DbSet<Checkup> Checkups { get; set; }
         public DbSet<Patient> Patients { get; set; }
     }
 }

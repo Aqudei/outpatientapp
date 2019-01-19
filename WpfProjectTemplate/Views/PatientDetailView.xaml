@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:local="clr-namespace:OutPatientApp.Views" Padding="8"
              xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d">
@@ -12,6 +13,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -37,8 +39,14 @@
             <Label FontSize="14">Present Address:</Label>
             <TextBlock VerticalAlignment="Center" x:Name="Address" Text="Purok 2, Brgy. Mercedes, Catbalogan City" FontSize="14"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0">
+        <mah:ToggleSwitch Grid.Row="4" 
+                          Grid.ColumnSpan="2" Grid.Column="0"
+                          Background="#FFFFABAB" HorizontalAlignment="Right">Is In-Patient</mah:ToggleSwitch>
+        <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Right">
             <Button Background="#FFFFABAB" cal:Message.Attach="Delete($dataContext)">Delete</Button>
+            <Button Background="#FFFFFFAB" cal:Message.Attach="Delete($dataContext)">Add Checkup</Button>
+            <Button Background="#FF85C7F5" cal:Message.Attach="Delete($dataContext)">View Checkups</Button>
+        
         </StackPanel>
     </Grid>
 </UserControl>

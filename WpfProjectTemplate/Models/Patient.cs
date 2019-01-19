@@ -20,6 +20,8 @@ namespace OutPatientApp.Models
         public string NextKin { get; set; }
         public string KinRelationship { get; set; }
 
+        public bool IsInPatient { get; set; } = false;
+
         public DateTime? LastUpdated { get; set; }
 
         public Patient()
