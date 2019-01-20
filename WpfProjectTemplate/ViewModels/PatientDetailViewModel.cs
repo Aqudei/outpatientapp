@@ -24,6 +24,8 @@ namespace OutPatientApp.ViewModels
         public string Sex { get; set; }
         public string Address { get; set; }
 
+        public string PictureImage { get; set; }
+
         public bool IsInPatient
         {
             get => _isInPatient;

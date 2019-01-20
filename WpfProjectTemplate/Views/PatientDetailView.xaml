@@ -6,9 +6,13 @@
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:local="clr-namespace:OutPatientApp.Views" Padding="8"
              xmlns:cal="http://www.caliburnproject.org"
-             mc:Ignorable="d">
-    <Grid>
+             mc:Ignorable="d" FontSize="18" Width="600" >
+    <UserControl.Resources>
+        <Image x:Key="WhoImage" Source="/OutPatientApp;component/Resources/Who_is_it.png"></Image>
+    </UserControl.Resources>
+    <Grid Margin="16,8">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
@@ -20,33 +24,40 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="FullName" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2">Almine, Francis Deo</TextBlock>
-        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
-            <Label FontSize="14">Birthday:</Label>
-            <TextBlock VerticalAlignment="Center" x:Name="Birthday" Text="December 1, 2019" FontSize="14"/>
+        <TextBlock x:Name="FullName" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1">Almine, Francis Deo</TextBlock>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+            <Label>Birthday:</Label>
+            <TextBlock VerticalAlignment="Center" x:Name="Birthday" Text="December 1, 2019"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Margin="8,0,0,0">
-            <Label FontSize="14">Sex:</Label>
-            <TextBlock VerticalAlignment="Center" x:Name="Sex" Text="Male" FontSize="14"/>
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" Margin="8,0,0,0">
+            <Label>Sex:</Label>
+            <TextBlock VerticalAlignment="Center" x:Name="Sex" Text="Male"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" Grid.ColumnSpan="2">
-            <Label FontSize="14">Birth Place:</Label>
-            <TextBlock VerticalAlignment="Center" x:Name="BirthPlace" Text="Catbalogan City" FontSize="14"/>
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Label>Birth Place:</Label>
+            <TextBlock VerticalAlignment="Center" x:Name="BirthPlace" Text="Catbalogan City"/>
         </StackPanel>
-        <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" Grid.ColumnSpan="2">
-            <Label FontSize="14">Present Address:</Label>
-            <TextBlock VerticalAlignment="Center" x:Name="Address" Text="Purok 2, Brgy. Mercedes, Catbalogan City" FontSize="14"/>
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Label>Present Address:</Label>
+            <TextBlock VerticalAlignment="Center" x:Name="Address" Text="Purok 2, Brgy. Mercedes, Catbalogan City" TextWrapping="WrapWithOverflow" Width="200"/>
         </StackPanel>
         <mah:ToggleSwitch Grid.Row="4" 
-                          Grid.ColumnSpan="2" Grid.Column="0"
-                          Background="#FFFFABAB" HorizontalAlignment="Right">Is In-Patient</mah:ToggleSwitch>
-        <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Right">
-            <Button Background="#FFFFABAB" cal:Message.Attach="Delete($dataContext)">Delete</Button>
-            <Button Background="#FFFFFFAB" cal:Message.Attach="AddCheckup($dataContext)">Add Checkup</Button>
-            <Button Background="#FF85C7F5" cal:Message.Attach="ViewCheckups($dataContext)">View Checkups</Button>
+                          Grid.ColumnSpan="2" Grid.Column="1"
+                          Background="#FFFFABAB"
+                          HorizontalAlignment="Right"
+                          FontSize="18">Is In-Patient</mah:ToggleSwitch>
 
+        <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Center">
+            <Button Background="#FFFFABAB" cal:Message.Attach="Delete($dataContext)" FontSize="18">Delete</Button>
+            <Button Background="#FFFFFFAB" cal:Message.Attach="AddCheckup($dataContext)" FontSize="18">Add Checkup</Button>
+            <Button Background="#FF85C7F5" cal:Message.Attach="ViewCheckups($dataContext)" FontSize="18">View Checkups</Button>
         </StackPanel>
+
+        <Image Grid.Column="0" 
+               Width="200"
+               Source="{Binding PictureImage, TargetNullValue={StaticResource WhoImage}}"
+               Grid.Row="0" Grid.RowSpan="5" Margin="4"/>
     </Grid>
 </UserControl>

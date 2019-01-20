@@ -90,6 +90,69 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>..\NativeBinaries\AForge\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Controls">
+      <HintPath>..\NativeBinaries\AForge\AForge.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.DebuggerVisualizers %282010%29">
+      <HintPath>..\NativeBinaries\AForge\AForge.DebuggerVisualizers (2010).dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Fuzzy">
+      <HintPath>..\NativeBinaries\AForge\AForge.Fuzzy.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Genetic">
+      <HintPath>..\NativeBinaries\AForge\AForge.Genetic.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging">
+      <HintPath>..\NativeBinaries\AForge\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging.Formats">
+      <HintPath>..\NativeBinaries\AForge\AForge.Imaging.Formats.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging.IPPrototyper">
+      <HintPath>..\NativeBinaries\AForge\AForge.Imaging.IPPrototyper.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.MachineLearning">
+      <HintPath>..\NativeBinaries\AForge\AForge.MachineLearning.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math">
+      <HintPath>..\NativeBinaries\AForge\AForge.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Neuro">
+      <HintPath>..\NativeBinaries\AForge\AForge.Neuro.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Robotics.Lego">
+      <HintPath>..\NativeBinaries\AForge\AForge.Robotics.Lego.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Robotics.Surveyor">
+      <HintPath>..\NativeBinaries\AForge\AForge.Robotics.Surveyor.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Robotics.TeRK">
+      <HintPath>..\NativeBinaries\AForge\AForge.Robotics.TeRK.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video">
+      <HintPath>..\NativeBinaries\AForge\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow">
+      <HintPath>..\NativeBinaries\AForge\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.FFMPEG">
+      <HintPath>..\NativeBinaries\AForge\AForge.Video.FFMPEG.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.Kinect">
+      <HintPath>..\NativeBinaries\AForge\AForge.Video.Kinect.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.VFW">
+      <HintPath>..\NativeBinaries\AForge\AForge.Video.VFW.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.Ximea">
+      <HintPath>..\NativeBinaries\AForge\AForge.Video.Ximea.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Vision">
+      <HintPath>..\NativeBinaries\AForge\AForge.Vision.dll</HintPath>
+    </Reference>
     <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
@@ -117,6 +180,9 @@
     <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.SqlServerCompact.6.2.0\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
     </Reference>
+    <Reference Include="IPPrototyper">
+      <HintPath>..\NativeBinaries\AForge\IPPrototyper.exe</HintPath>
+    </Reference>
     <Reference Include="MahApps.Metro, Version=1.6.5.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.6.5\lib\net45\MahApps.Metro.dll</HintPath>
     </Reference>
@@ -132,6 +198,7 @@
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
@@ -259,6 +326,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="Resources\Who_is_it.png" />
     <Content Include="x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
     <Content Include="x86\Microsoft.VC90.CRT\msvcr90.dll" />
     <Content Include="x86\Microsoft.VC90.CRT\README_ENU.txt" />

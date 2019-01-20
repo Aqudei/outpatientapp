@@ -59,5 +59,15 @@ namespace OutPatientApp.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Who_is_it {
+            get {
+                object obj = ResourceManager.GetObject("Who_is_it", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:OutPatientApp.Views"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="OutPatientApp.Views.PatientRegistrationView"
         mah:DialogParticipation.Register="{Binding}"    
-        mc:Ignorable="d" FontSize="16" d:DesignWidth="933.2" d:DesignHeight="463.6">
+        mc:Ignorable="d" FontSize="16" d:DesignWidth="1114.273" d:DesignHeight="473.785">
     <GroupBox Header="Out-Patient Registration">
         <Grid>
             <TextBox x:Name="LastName" HorizontalAlignment="Left" Margin="33,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Last Name"/>
@@ -19,6 +19,11 @@
             <TextBox x:Name="KinRelationship" HorizontalAlignment="Left" Margin="428,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Relationship"/>
             <DatePicker x:Name="Birthday" HorizontalAlignment="Left" Margin="33,195,0,0" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Birthday"/>
             <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="646,310,0,0" VerticalAlignment="Top" Width="75"/>
+            <Border HorizontalAlignment="Left" Height="250" Margin="751,32,0,0" VerticalAlignment="Top" Width="318" BorderBrush="Black" BorderThickness="1">
+                <Image x:Name="PictureImage" Stretch="UniformToFill" />
+            </Border>
+            <Button x:Name="CaptureImage" Content="Capture Image" HorizontalAlignment="Left" Margin="920,310,0,0" VerticalAlignment="Top" Width="149"/>
+            <Button x:Name="ResetCapture" Content="Reset Capture" HorizontalAlignment="Left" Margin="751,310,0,0" VerticalAlignment="Top" Width="149"/>
 
         </Grid>
     </GroupBox>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace OutPatientApp.ViewModels
         private readonly IMapper _mapper;
         private readonly IDialogCoordinator _dialogCoordinator;
         private readonly IWindowManager _windowManager;
+        private readonly string _imageDirectory;
 
         public override string DisplayName { get; set; } = "Out-Patient List";
 
@@ -27,6 +29,11 @@ namespace OutPatientApp.ViewModels
             _mapper = mapper;
             _dialogCoordinator = dialogCoordinator;
             _windowManager = windowManager;
+
+
+            _imageDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                "SPHOutPatient");
+            Directory.CreateDirectory(_imageDirectory);
         }
 
         protected override void OnViewReady(object view)
@@ -40,6 +47,10 @@ namespace OutPatientApp.ViewModels
             using (var db = new OPContext())
             {
                 Patients.AddRange(db.Patients.ToList().Select(p => _mapper.Map<PatientDetailViewModel>(p)));
+                foreach (var patient in Patients)
+                {
+                    patient.PictureImage = Path.Combine(_imageDirectory, patient.Id + ".png");
+                }
             }
         }
 

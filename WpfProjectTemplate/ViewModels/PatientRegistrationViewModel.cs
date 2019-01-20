@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Media.Imaging;
+using AForge.Video.DirectShow;
 using AutoMapper;
 using Caliburn.Micro;
 using MahApps.Metro.Controls.Dialogs;
@@ -11,6 +17,11 @@ using OutPatientApp.Persistence;
 
 namespace OutPatientApp.ViewModels
 {
+    enum CameraState
+    {
+        Standby, Captured, Capturing
+    }
+
     class PatientRegistrationViewModel : Screen
     {
         private readonly IMapper _mapper;
@@ -25,6 +36,8 @@ namespace OutPatientApp.ViewModels
         private string _address;
         private string _nextKin;
         private string _kinRelationship;
+        private readonly VideoCaptureDevice _localWebcam;
+        private BitmapImage _bitmapImage;
         public override string DisplayName { get; set; } = "Out-Patient Registration";
 
         public string LastName
@@ -106,11 +119,84 @@ namespace OutPatientApp.ViewModels
             CivilStatuses.Add("Widowed");
 
             Birthday = DateTime.Now;
+
+            var webCams = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            if (webCams.Count <= 0)
+                return;
+
+            _localWebcam = new VideoCaptureDevice(webCams[0].MonikerString);
+            _localWebcam.NewFrame += _localWebcam_NewFrame;
+            _localWebcam.Start();
+
+            _imageDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                "SPHOutPatient");
+            Directory.CreateDirectory(_imageDirectory);
+
+            Application.Current.Exit += Current_Exit;
+        }
+
+        private void Current_Exit(object sender, ExitEventArgs e)
+        {
+            _localWebcam.NewFrame -= _localWebcam_NewFrame;
+            _localWebcam.SignalToStop();
+        }
+
+        public BitmapImage PictureImage
+        {
+            get => _bitmapImage;
+            set => Set(ref _bitmapImage, value);
+        }
+
+        private void _localWebcam_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
+        {
+            Execute.OnUIThread(() => PictureImage = eventArgs.Frame.ToBitmapImage());
+
+            if (CameraState != CameraState.Capturing)
+                return;
+
+            _savableImage = eventArgs.Frame;
+            CameraState = CameraState.Captured;
+            _localWebcam.NewFrame -= _localWebcam_NewFrame;
+        }
+
+
+        public CameraState CameraState
+        {
+            get => _cameraState;
+            private set
+            {
+                Set(ref _cameraState, value);
+                NotifyOfPropertyChange(nameof(CanCaptureImage));
+                NotifyOfPropertyChange(nameof(CanResetCapture));
+            }
+        }
+
+        private Bitmap _savableImage = null;
+        private string _imageDirectory;
+        private CameraState _cameraState = CameraState.Standby;
+
+        public void ResetCapture()
+        {
+            _savableImage = null;
+            _localWebcam.NewFrame += _localWebcam_NewFrame;
+            CameraState = CameraState.Standby;
+        }
+
+        public bool CanCaptureImage => CameraState == CameraState.Standby;
+        public bool CanResetCapture => CameraState == CameraState.Captured;
+
+        public void CaptureImage()
+        {
+            CameraState = CameraState.Capturing;
         }
 
         public void Save()
         {
             var patient = _mapper.Map<Patient>(this);
+
+            var imagePath = Path.Combine(_imageDirectory, patient.Id + ".png");
+            PictureImage?.SaveImage(imagePath);
+
             using (var db = new OPContext())
             {
                 db.Patients.Add(patient);
