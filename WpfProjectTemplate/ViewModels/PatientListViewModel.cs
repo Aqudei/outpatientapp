@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using AutoMapper;
 using Caliburn.Micro;
 using MahApps.Metro.Controls.Dialogs;
@@ -17,11 +19,14 @@ namespace OutPatientApp.ViewModels
         private readonly IDialogCoordinator _dialogCoordinator;
         private readonly IWindowManager _windowManager;
         private readonly string _imageDirectory;
+        private string _searchText;
 
         public override string DisplayName { get; set; } = "Out-Patient List";
 
-        public BindableCollection<PatientDetailViewModel> Patients { get; set; }
+        private BindableCollection<PatientDetailViewModel> _patients { get; set; }
             = new BindableCollection<PatientDetailViewModel>();
+
+        public ICollectionView Patients { get; set; }
 
         public PatientListViewModel(IMapper mapper, IDialogCoordinator dialogCoordinator,
             IWindowManager windowManager)
@@ -30,6 +35,7 @@ namespace OutPatientApp.ViewModels
             _dialogCoordinator = dialogCoordinator;
             _windowManager = windowManager;
 
+            Patients = CollectionViewSource.GetDefaultView(_patients);
 
             _imageDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                 "SPHOutPatient");
@@ -41,13 +47,31 @@ namespace OutPatientApp.ViewModels
             ReloadData();
         }
 
+        public string SearchText
+        {
+            get => _searchText;
+            set => Set(ref _searchText, value);
+        }
+
+        public void DoFilter()
+        {
+            Patients.Filter = o =>
+            {
+                if (string.IsNullOrWhiteSpace(SearchText))
+                    return true;
+
+                return o is PatientDetailViewModel patient && (patient.FullName.ToLower().Contains(SearchText.ToLower()) ||
+                                           patient.Address.ToLower().Contains(SearchText.ToLower()));
+            };
+        }
+
         private void ReloadData()
         {
-            Patients.Clear();
+            _patients.Clear();
             using (var db = new OPContext())
             {
-                Patients.AddRange(db.Patients.ToList().Select(p => _mapper.Map<PatientDetailViewModel>(p)));
-                foreach (var patient in Patients)
+                _patients.AddRange(db.Patients.ToList().Select(p => _mapper.Map<PatientDetailViewModel>(p)));
+                foreach (var patient in _patients)
                 {
                     patient.PictureImage = Path.Combine(_imageDirectory, patient.Id + ".png");
                 }

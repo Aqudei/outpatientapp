@@ -21,7 +21,7 @@ namespace OutPatientApp.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
-                "dbo.Patients",
+                "dbo._patients",
                 c => new
                     {
                         Id = c.Guid(nullable: false),
@@ -45,7 +45,7 @@ namespace OutPatientApp.Migrations
         
         public override void Down()
         {
-            DropTable("dbo.Patients");
+            DropTable("dbo._patients");
             DropTable("dbo.Checkups");
         }
     }
