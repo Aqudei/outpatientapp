@@ -23,8 +23,7 @@ namespace OutPatientApp.ViewModels
 
         public override string DisplayName { get; set; } = "Out-Patient List";
 
-        private BindableCollection<PatientDetailViewModel> _patients { get; set; }
-            = new BindableCollection<PatientDetailViewModel>();
+        private readonly BindableCollection<PatientDetailViewModel> _patients = new BindableCollection<PatientDetailViewModel>();
 
         public ICollectionView Patients { get; set; }
 
