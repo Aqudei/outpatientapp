@@ -7,12 +7,15 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="OutPatientApp.Views.AccountsManagerView"
         mc:Ignorable="d" d:DesignWidth="978.14" d:DesignHeight="579.593" >
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="Items"/>
+        <DataGrid x:Name="Items" CanUserAddRows="False" IsReadOnly="True"/>
         <Label Content="First Name:" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <TextBox x:Name="FirstName" HorizontalAlignment="Left" Height="22" Margin="85,12,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="300"/>
         <Label Content="Last Name:" HorizontalAlignment="Left" Margin="10,37,0,0" Grid.Row="1" VerticalAlignment="Top"/>
@@ -20,23 +23,27 @@
         <Label Content="Birthday:" HorizontalAlignment="Left" Margin="10,65,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <DatePicker x:Name="Birthday" HorizontalAlignment="Left" Height="24" Margin="85,66,0,0" Grid.Row="1" Text="TextBox" VerticalAlignment="Top" Width="300"/>
         <Label Content="Sex:" HorizontalAlignment="Left" Margin="10,94,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <ComboBox x:Name="Sex" HorizontalAlignment="Left" SelectedItem="Male" 
-                  Height="24" Margin="85,95,0,0" Grid.Row="1" Text="TextBox" VerticalAlignment="Top" Width="300">
-            <System:String>Male</System:String>
-            <System:String>Female</System:String>
+        <ComboBox ItemsSource="{Binding Sexes}" HorizontalAlignment="Left" Text="{Binding Sex}" 
+                  Height="24" Margin="85,95,0,0" 
+                  Grid.Row="1" 
+                  VerticalAlignment="Top" Width="300">
+
         </ComboBox>
         <Label Content="UserName:" HorizontalAlignment="Left" Margin="464,26,0,0" Grid.Row="1" VerticalAlignment="Top"/>
         <TextBox x:Name="UserName" HorizontalAlignment="Left" Height="22" Margin="554,28,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="300"/>
-        <Label Content="Specialization:" HorizontalAlignment="Left" Margin="464,83,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Height="22" Margin="554,85,0,0" 
-                  Grid.Row="1" 
-                  Text="TextBox" VerticalAlignment="Top" Width="300"/>
+        <Grid Margin="464,83,124,82" Grid.Row="1" Visibility="{Binding IsDoctor, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <Label Content="Specialization:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="Specialization" HorizontalAlignment="Left" Height="22" Margin="90,2,0,0" 
+                VerticalAlignment="Top" Width="300"/>
+        </Grid>
         <Label Content="Account Type:" HorizontalAlignment="Left" Margin="464,55,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Height="22" Margin="554,57,0,0" Grid.Row="1" Text="TextBox" VerticalAlignment="Top" Width="300"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="780,163,0,0" Grid.Row="1" VerticalAlignment="Top" Width="74"/>
+        <ComboBox ItemsSource="{Binding AccountTypes}"
+                  SelectedItem="{Binding AccountType}"
+                  HorizontalAlignment="Left" Height="22" Margin="554,57,0,0" Grid.Row="1" Text="TextBox" VerticalAlignment="Top" Width="300"/>
+        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="780,163,0,0" Grid.Row="1" VerticalAlignment="Top" Width="74"/>
         <Button Content="Save" HorizontalAlignment="Left" Margin="701,163,0,0" Grid.Row="1" VerticalAlignment="Top" Width="74"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="701,163,0,0" Grid.Row="1" VerticalAlignment="Top" Width="74"/>
-        <Button Content="New" HorizontalAlignment="Left" Margin="622,163,0,0" Grid.Row="1" VerticalAlignment="Top" Width="74"/>
+        <Button x:Name="Delete" Content="Delete" HorizontalAlignment="Left" Margin="701,163,0,0" Grid.Row="1" VerticalAlignment="Top" Width="74"/>
+        <Button x:Name="NewItem" Content="New" HorizontalAlignment="Left" Margin="622,163,0,0" Grid.Row="1" VerticalAlignment="Top" Width="74"/>
 
     </Grid>
 </UserControl>

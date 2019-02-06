@@ -13,7 +13,7 @@
             <RowDefinition Height="28*"/>
         </Grid.RowDefinitions>
         <TextBox x:Name="UserName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="478" Margin="64,56,0,0"/>
-        <PasswordBox x:Name="Password" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="478" Margin="64,47.267,0,0" Grid.Row="1"/>
+        <PasswordBox x:Name="Password" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="478" Margin="64,47.267,0,0" Grid.Row="1" PasswordChanged="Password_PasswordChanged"/>
         <Button x:Name="Login" Content="Login" HorizontalAlignment="Left" Margin="467,113.267,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
         <Button x:Name="ExitApp" Content="Exit" HorizontalAlignment="Left" Margin="64,113.267,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
         <Label Content="User Name:" HorizontalAlignment="Left" Margin="64,25,0,0" VerticalAlignment="Top"/>

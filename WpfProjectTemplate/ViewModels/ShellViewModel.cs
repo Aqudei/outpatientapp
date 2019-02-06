@@ -1,4 +1,6 @@
-﻿using Caliburn.Micro;
+﻿using System.Collections.Generic;
+using System.Windows;
+using Caliburn.Micro;
 using OutPatientApp.Models;
 
 namespace OutPatientApp.ViewModels
@@ -16,12 +18,11 @@ namespace OutPatientApp.ViewModels
 
         protected override void OnViewReady(object view)
         {
+            var settings = new Dictionary<string, object>();
+            settings.Add("WindowState", WindowState.Maximized);
+            Execute.OnUIThreadAsync(() => _windowManager.ShowWindow(IoC.Get<AccountsManagerViewModel>(), settings: settings));
 
-#if DEBUG
-            Execute.OnUIThreadAsync(() => { _windowManager.ShowDialog(IoC.Get<AccountsManagerViewModel>()); });
-#endif
-
-            Execute.OnUIThreadAsync(() =>
+            Execute.OnUIThread(() =>
             {
                 var vm = IoC.Get<LoginViewModel>();
                 var dlgResult = _windowManager.ShowDialog(vm);
@@ -32,6 +33,10 @@ namespace OutPatientApp.ViewModels
                     {
                         Items.Add(IoC.Get<AccountsManagerViewModel>());
                     }
+                }
+                else
+                {
+                    Application.Current.Shutdown();
                 }
             });
         }

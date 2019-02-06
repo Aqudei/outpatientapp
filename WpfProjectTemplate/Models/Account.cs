@@ -19,6 +19,11 @@ namespace OutPatientApp.Models
         public string UserName { get; set; }
         public string Password { get; private set; }
         public AccountType AccountType { get; set; } = AccountType.Clerk;
+        public DateTime Birthday { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Sex { get; set; }
+        public string Specialization { get; set; }
 
         public Account()
         {

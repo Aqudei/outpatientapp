@@ -252,6 +252,10 @@
     <Compile Include="Migrations\201902061629002_Initial.Designer.cs">
       <DependentUpon>201902061629002_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902062246484_Next.cs" />
+    <Compile Include="Migrations\201902062246484_Next.Designer.cs">
+      <DependentUpon>201902062246484_Next.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\EntityBase.cs" />
@@ -355,6 +359,9 @@
     <Content Include="x86\sqlcese40.dll" />
     <EmbeddedResource Include="Migrations\201902061629002_Initial.resx">
       <DependentUpon>201902061629002_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902062246484_Next.resx">
+      <DependentUpon>201902062246484_Next.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
