@@ -13,7 +13,7 @@ namespace OutPatientApp.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201901190029275_Initial"; }
+            get { return "201902061629002_Initial"; }
         }
         
         string IMigrationMetadata.Source

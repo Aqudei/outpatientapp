@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OutPatientApp.Models
 {
-    class EntityBase : IEquatable<EntityBase>
+    public class EntityBase : IEquatable<EntityBase>
     {
         public Guid Id { get; set; }
 

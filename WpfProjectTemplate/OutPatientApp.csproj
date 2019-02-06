@@ -248,21 +248,28 @@
     </ApplicationDefinition>
     <Compile Include="Converter\ContentToVisibilityConverter.cs" />
     <Compile Include="Extentions.cs" />
-    <Compile Include="Migrations\201901190029275_Initial.cs" />
-    <Compile Include="Migrations\201901190029275_Initial.Designer.cs">
-      <DependentUpon>201901190029275_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201902061629002_Initial.cs" />
+    <Compile Include="Migrations\201902061629002_Initial.Designer.cs">
+      <DependentUpon>201902061629002_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\EntityBase.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Persistence\OPContext.cs" />
     <Compile Include="Models\Checkup.cs" />
+    <Compile Include="ViewModels\AccountsManagerViewModel.cs" />
     <Compile Include="ViewModels\AddCheckupViewModel.cs" />
     <Compile Include="ViewModels\CheckupListViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\PatientDetailViewModel.cs" />
     <Compile Include="ViewModels\PatientListViewModel.cs" />
     <Compile Include="ViewModels\PatientRegistrationViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Page Include="Views\AccountsManagerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\AddCheckupView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -270,6 +277,10 @@
     <Page Include="Views\CheckupListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PatientDetailView.xaml">
       <SubType>Designer</SubType>
@@ -292,11 +303,17 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Views\AccountsManagerView.xaml.cs">
+      <DependentUpon>AccountsManagerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddCheckupView.xaml.cs">
       <DependentUpon>AddCheckupView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CheckupListView.xaml.cs">
       <DependentUpon>CheckupListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PatientDetailView.xaml.cs">
       <DependentUpon>PatientDetailView.xaml</DependentUpon>
@@ -336,8 +353,8 @@
     <Content Include="x86\sqlceme40.dll" />
     <Content Include="x86\sqlceqp40.dll" />
     <Content Include="x86\sqlcese40.dll" />
-    <EmbeddedResource Include="Migrations\201901190029275_Initial.resx">
-      <DependentUpon>201901190029275_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902061629002_Initial.resx">
+      <DependentUpon>201902061629002_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

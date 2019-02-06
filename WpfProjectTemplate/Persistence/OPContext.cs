@@ -15,5 +15,6 @@ namespace OutPatientApp.Persistence
 
         public DbSet<Checkup> Checkups { get; set; }
         public DbSet<Patient> Patients { get; set; }
+        public DbSet<Account> Accounts { get; set; }
     }
 }

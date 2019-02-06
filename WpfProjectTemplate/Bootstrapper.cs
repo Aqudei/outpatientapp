@@ -26,6 +26,7 @@ namespace OutPatientApp
 
         protected override void Configure()
         {
+            _container.RegisterInstance(DialogCoordinator.Instance);
             _container.RegisterSingleton<IEventAggregator, EventAggregator>();
             _container.RegisterInstance(DialogCoordinator.Instance);
             _container.RegisterSingleton<IWindowManager, WindowManager>();
