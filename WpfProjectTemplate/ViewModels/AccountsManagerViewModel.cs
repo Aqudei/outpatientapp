@@ -13,6 +13,17 @@ namespace OutPatientApp.ViewModels
     {
         private readonly BindableCollection<Account> _accounts = new BindableCollection<Account>();
         private readonly IMapper _mapper;
+        private Account _selectedItem;
+
+        public Account SelectedItem
+        {
+            get { return _selectedItem; }
+            set
+            {
+                Set(ref _selectedItem, value);
+                _mapper.Map(value, this);
+            }
+        }
 
 
         private AccountType _accountType;
@@ -124,10 +135,25 @@ namespace OutPatientApp.ViewModels
 
         public void NewItem()
         {
+            Id = Guid.NewGuid();
         }
 
         public void Delete()
         {
+            if (SelectedItem != null)
+            {
+                using (var db = new OPContext())
+                {
+                    var existing = db.Accounts.Find(SelectedItem.Id);
+                    if (existing != null)
+                    {
+                        db.Accounts.Remove(existing);
+                        db.SaveChanges();
+                    }
+
+                    _accounts.Remove(SelectedItem);
+                }
+            }
         }
     }
 }
