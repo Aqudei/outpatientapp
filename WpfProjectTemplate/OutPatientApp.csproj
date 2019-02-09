@@ -248,14 +248,6 @@
     </ApplicationDefinition>
     <Compile Include="Converter\ContentToVisibilityConverter.cs" />
     <Compile Include="Extentions.cs" />
-    <Compile Include="Migrations\201902061629002_Initial.cs" />
-    <Compile Include="Migrations\201902061629002_Initial.Designer.cs">
-      <DependentUpon>201902061629002_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902062246484_Next.cs" />
-    <Compile Include="Migrations\201902062246484_Next.Designer.cs">
-      <DependentUpon>201902062246484_Next.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\EntityBase.cs" />
@@ -265,6 +257,7 @@
     <Compile Include="ViewModels\AccountsManagerViewModel.cs" />
     <Compile Include="ViewModels\AddCheckupViewModel.cs" />
     <Compile Include="ViewModels\CheckupListViewModel.cs" />
+    <Compile Include="ViewModels\ForCheckupListViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\PatientDetailViewModel.cs" />
     <Compile Include="ViewModels\PatientListViewModel.cs" />
@@ -279,6 +272,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CheckupListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ForCheckupItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ForCheckupListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -315,6 +316,13 @@
     </Compile>
     <Compile Include="Views\CheckupListView.xaml.cs">
       <DependentUpon>CheckupListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ForCheckupItemView.xaml.cs">
+      <DependentUpon>ForCheckupItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ForCheckupItemViewModel.cs" />
+    <Compile Include="Views\ForCheckupListView.xaml.cs">
+      <DependentUpon>ForCheckupListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -357,12 +365,6 @@
     <Content Include="x86\sqlceme40.dll" />
     <Content Include="x86\sqlceqp40.dll" />
     <Content Include="x86\sqlcese40.dll" />
-    <EmbeddedResource Include="Migrations\201902061629002_Initial.resx">
-      <DependentUpon>201902061629002_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902062246484_Next.resx">
-      <DependentUpon>201902062246484_Next.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -389,7 +391,10 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModels\Dialogs\" />
+    <Folder Include="Views\Dialogs\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

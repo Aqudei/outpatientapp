@@ -33,6 +33,10 @@ namespace OutPatientApp.ViewModels
                     {
                         Items.Add(IoC.Get<AccountsManagerViewModel>());
                     }
+                    if (vm.Account.AccountType == AccountType.Doctor)
+                    {
+                        Items.Add(IoC.Get<ForCheckupListViewModel>());
+                    }
                 }
                 else
                 {

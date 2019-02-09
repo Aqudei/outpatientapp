@@ -30,6 +30,7 @@ namespace OutPatientApp
             _container.RegisterSingleton<IEventAggregator, EventAggregator>();
             _container.RegisterInstance(DialogCoordinator.Instance);
             _container.RegisterSingleton<IWindowManager, WindowManager>();
+            _container.RegisterSingleton<LoginViewModel>();
 
             Mapper.Initialize(config =>
             {

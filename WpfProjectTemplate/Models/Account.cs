@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -16,6 +17,7 @@ namespace OutPatientApp.Models
 
     public class Account : EntityBase
     {
+        [StringLength(32)]
         public string UserName { get; set; }
         public string Password { get; private set; }
         public AccountType AccountType { get; set; } = AccountType.Clerk;
