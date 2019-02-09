@@ -3,10 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:OutPatientApp.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:local="clr-namespace:OutPatientApp.Views" Padding="8"
+             xmlns:cal="http://www.caliburnproject.org"
+             mc:Ignorable="d" FontSize="18" Width="600" >
+    <UserControl.Resources>
+        <Image x:Key="WhoImage" Source="/OutPatientApp;component/Resources/Who_is_it.png"></Image>
+    </UserControl.Resources>
+    <Grid Margin="16,8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="FullName" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1">Almine, Francis Deo</TextBlock>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+            <Label>Age:</Label>
+            <TextBlock VerticalAlignment="Center" x:Name="Age" Text="29"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" Margin="8,0,0,0">
+            <Label>Sex:</Label>
+            <TextBlock VerticalAlignment="Center" x:Name="Sex" Text="Male"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Label>Present Address:</Label>
+            <TextBlock VerticalAlignment="Center" x:Name="Address" Text="Purok 2, Brgy. Mercedes, Catbalogan City" TextWrapping="WrapWithOverflow" Width="200"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Label>Complaints:</Label>
+            <TextBlock VerticalAlignment="Center" x:Name="Complaints" Text="Masakit and heart sa tuwing naaalala ko siya" TextWrapping="WrapWithOverflow" Width="200"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Center">
+            <Button Background="#FFFFABAB" cal:Message.Attach="Delete($dataContext)" FontSize="18">Delete</Button>
+        </StackPanel>
+
+        <Image Grid.Column="0" 
+               Width="200"
+               Source="{Binding PictureImage, TargetNullValue={StaticResource WhoImage}}"
+               Grid.Row="0" Grid.RowSpan="5" Margin="4"/>
     </Grid>
 </UserControl>

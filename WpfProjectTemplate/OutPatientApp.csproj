@@ -240,6 +240,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Words.NET, Version=1.2.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.1.2.1\lib\Xceed.Words.NET.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -254,6 +257,7 @@
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Persistence\OPContext.cs" />
     <Compile Include="Models\Checkup.cs" />
+    <Compile Include="Reporting\Builder.cs" />
     <Compile Include="ViewModels\AccountsManagerViewModel.cs" />
     <Compile Include="ViewModels\AddCheckupViewModel.cs" />
     <Compile Include="ViewModels\CheckupListViewModel.cs" />
@@ -275,15 +279,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ForCheckupItemView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\ForCheckupListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LoginView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ForCheckupItemView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -317,15 +321,15 @@
     <Compile Include="Views\CheckupListView.xaml.cs">
       <DependentUpon>CheckupListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ForCheckupItemView.xaml.cs">
-      <DependentUpon>ForCheckupItemView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\ForCheckupItemViewModel.cs" />
     <Compile Include="Views\ForCheckupListView.xaml.cs">
       <DependentUpon>ForCheckupListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ForCheckupItemView.xaml.cs">
+      <DependentUpon>ForCheckupItemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PatientDetailView.xaml.cs">
       <DependentUpon>PatientDetailView.xaml</DependentUpon>
@@ -369,6 +373,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="MedicalRecordsDocTemplate.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

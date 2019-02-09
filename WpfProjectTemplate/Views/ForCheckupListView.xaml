@@ -7,6 +7,27 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <GroupBox Header="My Patients">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" Margin="4">
+                    <TextBox Width="320" x:Name="SearchText"></TextBox>
+                    <Button x:Name="DoFilter" Background="#FFA0D6F6">Search</Button>
+                </StackPanel>
+                <ListView  x:Name="Items" 
+                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                           Grid.Row="1">
+
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+            </Grid>
+        </GroupBox>
     </Grid>
 </UserControl>

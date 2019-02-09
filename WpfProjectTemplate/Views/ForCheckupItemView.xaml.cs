@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace OutPatientApp.Views
 {
     /// <summary>
-    /// Interaction logic for ForCheckupItemView.xaml
+    /// Interaction logic for PatientDetailView.xaml
     /// </summary>
     public partial class ForCheckupItemView : UserControl
     {
