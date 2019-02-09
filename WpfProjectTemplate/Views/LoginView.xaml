@@ -5,19 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OutPatientApp.Views"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:ico="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="Login" Height="298.909" Width="604.502">
+        Title="Login" Height="246.909" Width="568.62">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="17*"/>
             <RowDefinition Height="28*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="UserName" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="478" Margin="64,56,0,0"/>
-        <PasswordBox x:Name="Password" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="478" Margin="64,47.267,0,0" Grid.Row="1" PasswordChanged="Password_PasswordChanged"/>
-        <Button x:Name="Login" Content="Login" HorizontalAlignment="Left" Margin="467,113.267,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
-        <Button x:Name="ExitApp" Content="Exit" HorizontalAlignment="Left" Margin="64,113.267,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
-        <Label Content="User Name:" HorizontalAlignment="Left" Margin="64,25,0,0" VerticalAlignment="Top"/>
-        <Label Content="Password:" HorizontalAlignment="Left" Margin="64,16.267,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+
+        <ico:PackIconModern Kind="User" Margin="52,41,0,0" Height="31" Width="31"/>
+
+        <TextBox x:Name="UserName" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="444" Margin="101,40,0,0"/>
+        <PasswordBox x:Name="Password" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="444" Margin="101,50.6,0,0" Grid.Row="1" PasswordChanged="Password_PasswordChanged"/>
+        <Button x:Name="Login" Content="Login" HorizontalAlignment="Left" Margin="467,96.6,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
+        <Button x:Name="ExitApp" Content="Exit" HorizontalAlignment="Left" Margin="357,97.6,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1"/>
+        <Label Content="User Name:" HorizontalAlignment="Left" Margin="101,9,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password:" HorizontalAlignment="Left" Margin="101,18.6,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <ico:PackIconModern Kind="Key" Margin="51,50.6,0,0" Height="32" Width="32" Grid.Row="1"/>
 
     </Grid>
 </mah:MetroWindow>

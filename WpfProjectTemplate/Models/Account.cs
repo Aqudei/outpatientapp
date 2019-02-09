@@ -27,6 +27,17 @@ namespace OutPatientApp.Models
         public string Sex { get; set; }
         public string Specialization { get; set; }
 
+        public string FullName
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(FirstName) || string.IsNullOrWhiteSpace(LastName))
+                    return " ";
+
+                return $"{FirstName} {LastName}";
+            }
+        }
+
         public Account()
         {
 

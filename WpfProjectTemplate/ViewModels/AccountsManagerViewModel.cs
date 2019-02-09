@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Windows.Data;
 using AutoMapper;
@@ -129,6 +130,16 @@ namespace OutPatientApp.ViewModels
                     var added = db.Accounts.Add(account);
                     db.SaveChanges();
                     _accounts.Add(added);
+                }
+                else
+                {
+                    var id = existingAccount.Id;
+                    _mapper.Map(account, existingAccount);
+                    existingAccount.Id = id;
+                    db.Entry(existingAccount).State = EntityState.Modified;
+                    _accounts.Remove(existingAccount);
+                    _accounts.Add(existingAccount);
+                    db.SaveChanges();
                 }
             }
         }

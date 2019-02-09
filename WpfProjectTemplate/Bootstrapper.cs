@@ -35,9 +35,11 @@ namespace OutPatientApp
             Mapper.Initialize(config =>
             {
                 config.CreateMap<AccountsManagerViewModel, Account>().ReverseMap();
+                config.CreateMap<Account, Account>().ForMember(m => m.Password, opts => opts.Ignore());
 
                 config.CreateMap<PatientRegistrationViewModel, Patient>()
                     .ForMember(m => m.LastUpdated, opts => opts.Ignore());
+
 
                 config.CreateMap<Patient, PatientDetailViewModel>()
                     .ForMember(m => m.FullName, opts => opts.MapFrom(p => $"{p.LastName}, {p.FirstName} {p.MiddleName}"));

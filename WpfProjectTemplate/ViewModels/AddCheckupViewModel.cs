@@ -35,11 +35,25 @@ namespace OutPatientApp.ViewModels
                 db.Checkups.Add(new Checkup
                 {
                     Complaint = Complaint,
-                    PatientId = PatientId
+                    PatientId = PatientId,
+                    DoctorId = SelectedDoctor != null ? SelectedDoctor.Id : Guid.Empty
                 });
+
                 db.SaveChanges();
 
                 Message = "Checkup successfully added";
+            }
+        }
+
+        public BindableCollection<Account> Doctors { get; set; } = new BindableCollection<Account>();
+        public Account SelectedDoctor { get; set; }
+
+        protected override void OnViewReady(object view)
+        {
+            Doctors.Clear();
+            using (var db = new OPContext())
+            {
+                Doctors.AddRange(db.Accounts.Where(a => a.AccountType == AccountType.Doctor).ToList());
             }
         }
     }
