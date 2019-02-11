@@ -38,11 +38,6 @@ namespace OutPatientApp.Models
             }
         }
 
-        public Account()
-        {
-
-        }
-
         public void SetPassword(string password)
         {
             using (var hasher = new SHA1CryptoServiceProvider())

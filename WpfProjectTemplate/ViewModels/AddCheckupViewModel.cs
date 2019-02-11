@@ -13,11 +13,16 @@ namespace OutPatientApp.ViewModels
     {
         private string _complaint;
         private string _message;
+        private Account _selectedDoctor;
 
         public string Complaint
         {
             get => _complaint;
-            set => Set(ref _complaint, value);
+            set
+            {
+                Set(ref _complaint, value);
+                NotifyOfPropertyChange(nameof(CanSave));
+            }
         }
 
         public Guid PatientId { get; set; }
@@ -27,6 +32,8 @@ namespace OutPatientApp.ViewModels
             get => _message;
             set => Set(ref _message, value);
         }
+
+        public bool CanSave => SelectedDoctor != null && !string.IsNullOrWhiteSpace(Complaint);
 
         public void Save()
         {
@@ -46,7 +53,16 @@ namespace OutPatientApp.ViewModels
         }
 
         public BindableCollection<Account> Doctors { get; set; } = new BindableCollection<Account>();
-        public Account SelectedDoctor { get; set; }
+
+        public Account SelectedDoctor
+        {
+            get => _selectedDoctor;
+            set
+            {
+                Set(ref _selectedDoctor, value);
+                NotifyOfPropertyChange(nameof(CanSave));
+            }
+        }
 
         protected override void OnViewReady(object view)
         {
