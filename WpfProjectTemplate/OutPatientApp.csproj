@@ -268,13 +268,19 @@
     <Compile Include="Migrations\201902110806439_AddPatientStatus.Designer.cs">
       <DependentUpon>201902110806439_AddPatientStatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902111158570_AddCaseNumber.cs" />
+    <Compile Include="Migrations\201902111158570_AddCaseNumber.Designer.cs">
+      <DependentUpon>201902111158570_AddCaseNumber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\CaseNumber.cs" />
     <Compile Include="Models\EntityBase.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Persistence\OPContext.cs" />
     <Compile Include="Models\Checkup.cs" />
     <Compile Include="Reporting\Builder.cs" />
+    <Compile Include="Services\CaseNumberGen.cs" />
     <Compile Include="ViewModels\AccountsManagerViewModel.cs" />
     <Compile Include="ViewModels\AddCheckupViewModel.cs" />
     <Compile Include="ViewModels\CheckupListViewModel.cs" />
@@ -391,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902110806439_AddPatientStatus.resx">
       <DependentUpon>201902110806439_AddPatientStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902111158570_AddCaseNumber.resx">
+      <DependentUpon>201902111158570_AddCaseNumber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

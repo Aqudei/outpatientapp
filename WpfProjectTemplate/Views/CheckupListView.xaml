@@ -13,10 +13,14 @@
                       CanUserAddRows="False"
                       AutoGenerateColumns="False">
                 <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding CaseNumber}"
+                                        Header="Case Number"
+                                        Width="3*"/>
                     <DataGridTextColumn Binding="{Binding Complaint}"
                                         Header="Complaint"
                                         Width="3*">
                     </DataGridTextColumn>
+                
                     <DataGridTextColumn Binding="{Binding Diagnosis}"
                                         Header="Diagnosis"
                                         Width="3*">

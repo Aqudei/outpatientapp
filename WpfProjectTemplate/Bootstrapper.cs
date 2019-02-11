@@ -5,6 +5,7 @@ using AutoMapper;
 using Caliburn.Micro;
 using MahApps.Metro.Controls.Dialogs;
 using OutPatientApp.Models;
+using OutPatientApp.Services;
 using OutPatientApp.ViewModels;
 using Unity;
 
@@ -32,7 +33,8 @@ namespace OutPatientApp
             _container.RegisterInstance(DialogCoordinator.Instance);
             _container.RegisterSingleton<IWindowManager, WindowManager>();
             _container.RegisterSingleton<LoginViewModel>();
-            _container.RegisterSingleton<PatientRegistrationViewModel>(); 
+            _container.RegisterSingleton<PatientRegistrationViewModel>();
+            _container.RegisterSingleton<CaseNumberGen>();
 
             Mapper.Initialize(config =>
             {

@@ -8,21 +8,21 @@
         xmlns:ico="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:Converter="clr-namespace:OutPatientApp.Converter" x:Class="OutPatientApp.Views.AddCheckupView"
         mc:Ignorable="d"
-        Title="AddCheckupView" Height="221.2" Width="550.933">
+        Title="AddCheckupView" Height="386.2" Width="550.933">
     <mah:MetroWindow.Resources>
         <Converter:ContentToVisibilityConverter x:Key="ContentToVisibilityConverter"/>
     </mah:MetroWindow.Resources>
     <Grid>
-        <Label Content="Doctor:" HorizontalAlignment="Left" Margin="23,24,0,0" VerticalAlignment="Top"/>
+        <Label Content="Doctor:" HorizontalAlignment="Left" Margin="15,88,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="Doctors"
                   DisplayMemberPath="FullName"
-                  HorizontalAlignment="Left" Height="23" Margin="103,24,0,0"
+                  HorizontalAlignment="Left" Height="23" Margin="128,88,0,0"
                   VerticalAlignment="Top" Width="400"/>
-        <Label Content="Complaint:" HorizontalAlignment="Left" Margin="23,66,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Complaint" HorizontalAlignment="Left" Height="23" Margin="103,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400"/>
+        <Label Content="Complaint:" HorizontalAlignment="Left" Margin="15,130,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Complaint" HorizontalAlignment="Left" Height="106" Margin="128,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" AcceptsReturn="True" AcceptsTab="True"/>
         <Button x:Name="Save"
                 HorizontalAlignment="Left"
-                Margin="428,103,0,0" VerticalAlignment="Top" Width="75">
+                Margin="450,258,0,0" VerticalAlignment="Top" Width="75">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -34,7 +34,7 @@
         </Button>
         <TextBlock Padding="4" 
                    x:Name="Message" 
-                   Margin="0,150,41.8,0"
+                   Margin="0,309,18,0"
                    TextWrapping="Wrap" 
                    VerticalAlignment="Top"
                    Width="400" FontSize="18" 
@@ -43,6 +43,10 @@
                    FontStretch="UltraExpanded" 
                    Visibility="{Binding Message, Converter={StaticResource ContentToVisibilityConverter}}"
                    HorizontalAlignment="Right" TextAlignment="Right" Background="#FFC0FCB4"/>
+        <Label Content="Case Number:" HorizontalAlignment="Left" Margin="15,38,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="CaseNumber_Display"
+            HorizontalAlignment="Left" Height="23" Margin="128,38,0,0"
+            VerticalAlignment="Top" Width="400" IsReadOnly="True" FontWeight="Bold"/>
 
     </Grid>
 </mah:MetroWindow>
