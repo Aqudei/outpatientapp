@@ -1,0 +1,39 @@
+﻿<mah:MetroWindow
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OutPatientApp.Views"
+        xmlns:Converter="clr-namespace:OutPatientApp.Converter" x:Class="OutPatientApp.Views.Dialogs.AddCheckupView"
+        mc:Ignorable="d"
+        Title="AddCheckupView" Height="221.2" Width="550.933">
+    <mah:MetroWindow.Resources>
+        <Converter:ContentToVisibilityConverter x:Key="ContentToVisibilityConverter"/>
+    </mah:MetroWindow.Resources>
+    <Grid>
+        <Label Content="Physician:" HorizontalAlignment="Left" Margin="23,44,0,0" VerticalAlignment="Top"/>
+        <ComboBox ItemsSource="{Binding Doctors}" 
+                  SelectedItem="{Binding Doctor}"
+                  HorizontalAlignment="Left" 
+                  Height="23" Margin="103,44,0,0" 
+                  VerticalAlignment="Top" Width="400"/>
+        <Label Content="Complaint:" HorizontalAlignment="Left" Margin="23,85,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Complaint" HorizontalAlignment="Left" Height="23" Margin="103,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400"/>
+        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="428,122,0,0" VerticalAlignment="Top" Width="75">
+
+        </Button>
+        <TextBlock Padding="4" 
+                   x:Name="Message" 
+                   Margin="0,156,41.8,0"
+                   TextWrapping="Wrap" 
+                   VerticalAlignment="Top"
+                   Width="400" FontSize="18" 
+                   Text="Check-up successfully added" 
+                   FontWeight="Thin" FontFamily="Arial"
+                   FontStretch="UltraExpanded" 
+                   Visibility="{Binding Message, Converter={StaticResource ContentToVisibilityConverter}}"
+                   HorizontalAlignment="Right" TextAlignment="Right" Background="#FFC0FCB4"/>
+
+    </Grid>
+</mah:MetroWindow>
