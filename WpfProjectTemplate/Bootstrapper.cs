@@ -26,11 +26,13 @@ namespace OutPatientApp
 
         protected override void Configure()
         {
+            _container.RegisterSingleton<ShellViewModel>();
             _container.RegisterInstance(DialogCoordinator.Instance);
             _container.RegisterSingleton<IEventAggregator, EventAggregator>();
             _container.RegisterInstance(DialogCoordinator.Instance);
             _container.RegisterSingleton<IWindowManager, WindowManager>();
             _container.RegisterSingleton<LoginViewModel>();
+            _container.RegisterSingleton<PatientRegistrationViewModel>(); 
 
             Mapper.Initialize(config =>
             {
@@ -38,7 +40,8 @@ namespace OutPatientApp
                 config.CreateMap<Account, Account>().ForMember(m => m.Password, opts => opts.Ignore());
 
                 config.CreateMap<PatientRegistrationViewModel, Patient>()
-                    .ForMember(m => m.LastUpdated, opts => opts.Ignore());
+                    .ForMember(m => m.LastUpdated, opts => opts.Ignore())
+                    .ReverseMap();
 
 
                 config.CreateMap<Patient, PatientDetailViewModel>()

@@ -13,7 +13,12 @@
             <TextBox x:Name="FirstName" HorizontalAlignment="Left" Margin="33,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="First Name"/>
             <TextBox x:Name="MiddleName" HorizontalAlignment="Left" Margin="33,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Middle Name"/>
             <TextBox x:Name="Address" HorizontalAlignment="Left" Margin="33,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="688" mah:TextBoxHelper.Watermark="Address"/>
-            <ComboBox x:Name="Sexes" HorizontalAlignment="Left" Margin="428,32,0,0" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Sex"/>
+            <ComboBox x:Name="Sexes" 
+                      SelectedItem="{Binding Sex}"
+                      HorizontalAlignment="Left" 
+                      Margin="428,32,0,0" 
+                      VerticalAlignment="Top" 
+                      Width="293" mah:TextBoxHelper.Watermark="Sex"/>
             <TextBox x:Name="BirthPlace" HorizontalAlignment="Left" Margin="428,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Place Of Birth"/>
             <TextBox x:Name="NextKin" HorizontalAlignment="Left" Margin="428,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Next Of Kin"/>
             <TextBox x:Name="KinRelationship" HorizontalAlignment="Left" Margin="428,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Relationship"/>

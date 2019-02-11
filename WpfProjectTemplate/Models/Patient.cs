@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace OutPatientApp.Models
 {
+    enum PatientStatus
+    {
+        InPatient,
+        OutPatient
+    }
     class Patient : EntityBase
     {
         public string LastName { get; set; }
@@ -32,5 +37,7 @@ namespace OutPatientApp.Models
         {
             LastUpdated = DateTime.Now;
         }
+
+        public PatientStatus Status { get; set; } = PatientStatus.OutPatient;
     }
 }

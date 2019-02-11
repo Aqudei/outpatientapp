@@ -108,5 +108,17 @@ namespace OutPatientApp.ViewModels
                 ReloadData();
             }
         }
+
+        public void Edit(PatientDetailViewModel patient)
+        {
+            var item = IoC.Get<PatientRegistrationViewModel>();
+            item.Id = patient.Id;
+            (base.Parent as IConductor)?.ActivateItem(item);
+        }
+
+        public void Print(PatientDetailViewModel patient)
+        {
+       
+        }
     }
 }

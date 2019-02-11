@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -22,7 +23,7 @@ namespace OutPatientApp.ViewModels
         Standby, Captured, Capturing
     }
 
-    class PatientRegistrationViewModel : Screen
+    sealed class PatientRegistrationViewModel : Screen
     {
         private readonly IMapper _mapper;
         private readonly IDialogCoordinator _dialogCoordinator;
@@ -132,8 +133,11 @@ namespace OutPatientApp.ViewModels
                 "SPHOutPatient");
             Directory.CreateDirectory(_imageDirectory);
 
+
+
             Application.Current.Exit += Current_Exit;
         }
+
 
         private void Current_Exit(object sender, ExitEventArgs e)
         {
@@ -174,6 +178,7 @@ namespace OutPatientApp.ViewModels
         private Bitmap _savableImage = null;
         private string _imageDirectory;
         private CameraState _cameraState = CameraState.Standby;
+        private Guid _id;
 
         public void ResetCapture()
         {
@@ -185,23 +190,80 @@ namespace OutPatientApp.ViewModels
         public bool CanCaptureImage => CameraState == CameraState.Standby;
         public bool CanResetCapture => CameraState == CameraState.Captured;
 
+        public Guid Id
+        {
+            get => _id;
+            set
+            {
+                var changed = value != _id;
+                Set(ref _id, value);
+
+                if (!changed)
+                    return;
+
+                if (Id == Guid.Empty)
+                {
+                    FirstName = "";
+                    LastName = "";
+                    NextKin = "";
+                    MiddleName = "";
+                    BirthPlace = "";
+                    KinRelationship = "";
+                    Address = "";
+                }
+                else
+                {
+                    using (var db = new OPContext())
+                    {
+                        var patient = db.Patients.FirstOrDefault(p => p.Id == Id);
+                        if (patient != null)
+                        {
+                            _mapper.Map(patient, this);
+                        }
+                    }
+                }
+            }
+        }
+
         public void CaptureImage()
         {
             CameraState = CameraState.Capturing;
         }
 
+        public void NewItem()
+        {
+            Id = Guid.Empty;
+        }
+
         public void Save()
         {
             var patient = _mapper.Map<Patient>(this);
+            if (_localWebcam != null && !string.IsNullOrWhiteSpace(_imageDirectory))
+            {
+                var imagePath = Path.Combine(_imageDirectory, patient.Id + ".png");
+                PictureImage?.SaveImage(imagePath);
+            }
 
-            var imagePath = Path.Combine(_imageDirectory, patient.Id + ".png");
-            PictureImage?.SaveImage(imagePath);
 
             using (var db = new OPContext())
             {
-                db.Patients.Add(patient);
-                db.SaveChanges();
-                _dialogCoordinator.ShowMessageAsync(this, "Success", "Patient's record was added");
+                var p = db.Patients.Find(Id);
+                if (p == null)
+                {
+                    db.Patients.Add(patient);
+                    db.SaveChanges();
+                    _dialogCoordinator.ShowMessageAsync(this, "Success", "Patient's record was added!");
+                }
+                else
+                {
+                    var id = p.Id;
+
+                    db.Entry(p).State = EntityState.Modified;
+                    _mapper.Map(this, db.Entry(p).Entity);
+                    db.Entry(p).Entity.Id = id;
+                    db.SaveChanges();
+                    _dialogCoordinator.ShowMessageAsync(this, "Success", "Patient's record was updated!");
+                }
             }
         }
     }

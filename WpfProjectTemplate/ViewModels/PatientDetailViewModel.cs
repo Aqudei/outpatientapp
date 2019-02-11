@@ -4,19 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
+using OutPatientApp.Models;
 
 namespace OutPatientApp.ViewModels
 {
     class PatientDetailViewModel : Screen
     {
         private string _lastName;
-        private bool _isInPatient;
+        private PatientStatus _status;
         public Guid Id { get; set; }
         public string LastName
         {
             get => _lastName;
             set => Set(ref _lastName, value);
         }
+
+        public bool CanPrint => IoC.Get<LoginViewModel>().Account.AccountType == AccountType.ChiefNurse;
 
         public string FullName { get; set; }
         public DateTime Birthday { get; set; }
@@ -26,10 +29,10 @@ namespace OutPatientApp.ViewModels
 
         public string PictureImage { get; set; }
 
-        public bool IsInPatient
+        public PatientStatus Status
         {
-            get => _isInPatient;
-            set => Set(ref _isInPatient, value);
+            get => _status;
+            set => Set(ref _status, value);
         }
     }
 }
