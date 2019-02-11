@@ -31,7 +31,18 @@ namespace OutPatientApp.ViewModels
                 {
                     if (vm.Account.AccountType == AccountType.ChiefNurse)
                     {
-                        Items.Add(IoC.Get<AccountsManagerViewModel>());
+                        ActivateItem(IoC.Get<AccountsManagerViewModel>());
+                        Items.Add(IoC.Get<PatientListViewModel>());
+                    }
+                    if (vm.Account.AccountType == AccountType.Clerk)
+                    {
+                        ActivateItem(IoC.Get<PatientRegistrationViewModel>());
+                        Items.Add(IoC.Get<PatientListViewModel>());
+                    }
+
+                    if (vm.Account.AccountType == AccountType.Doctor)
+                    {
+                        ActivateItem(IoC.Get<ForCheckupListViewModel>());
                     }
                 }
                 else

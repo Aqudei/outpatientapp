@@ -5,6 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OutPatientApp.Views"
+        xmlns:ico="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:Converter="clr-namespace:OutPatientApp.Converter" x:Class="OutPatientApp.Views.AddCheckupView"
         mc:Ignorable="d"
         Title="AddCheckupView" Height="221.2" Width="550.933">
@@ -12,16 +13,27 @@
         <Converter:ContentToVisibilityConverter x:Key="ContentToVisibilityConverter"/>
     </mah:MetroWindow.Resources>
     <Grid>
-        <Label Content="Physician:" HorizontalAlignment="Left" Margin="23,44,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Physician" HorizontalAlignment="Left" Height="23" Margin="103,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400"/>
-        <Label Content="Complaint:" HorizontalAlignment="Left" Margin="23,85,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Complaint" HorizontalAlignment="Left" Height="23" Margin="103,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400"/>
-        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="428,122,0,0" VerticalAlignment="Top" Width="75">
-
+        <Label Content="Doctor:" HorizontalAlignment="Left" Margin="23,24,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Physician"
+                  HorizontalAlignment="Left" Height="23" Margin="103,24,0,0"
+                  VerticalAlignment="Top" Width="400"/>
+        <Label Content="Complaint:" HorizontalAlignment="Left" Margin="23,66,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="Complaint" HorizontalAlignment="Left" Height="23" Margin="103,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400"/>
+        <Button x:Name="Save"
+                HorizontalAlignment="Left"
+                Margin="428,103,0,0" VerticalAlignment="Top" Width="75">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ico:PackIconModern Kind="Save" VerticalAlignment="Center"/>
+                <Label Grid.Column="1" VerticalAlignment="Center">Save</Label>
+            </Grid>
         </Button>
         <TextBlock Padding="4" 
                    x:Name="Message" 
-                   Margin="0,156,41.8,0"
+                   Margin="0,150,41.8,0"
                    TextWrapping="Wrap" 
                    VerticalAlignment="Top"
                    Width="400" FontSize="18" 

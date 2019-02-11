@@ -24,6 +24,10 @@ namespace OutPatientApp.Models
 
         public DateTime? LastUpdated { get; set; }
 
+        public string FullName => $"{FirstName} {LastName}";
+        public int Age => (int)(Birthday.HasValue ? (DateTime.Now - Birthday.Value).TotalDays / 365 : 0);
+        public string ContactNumber { get; set; }
+
         public Patient()
         {
             LastUpdated = DateTime.Now;

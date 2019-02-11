@@ -14,14 +14,14 @@
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Application Files\OutPatientApp_2_0_0_3\OutPatientApp.exe.manifest" size="39247">
+    <dependentAssembly dependencyType="install" codebase="Application Files\OutPatientApp_2_0_0_3\OutPatientApp.exe.manifest" size="39602">
       <assemblyIdentity name="OutPatientApp.exe" version="2.0.0.3" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>YQV8z5j56ZsZDRsAZh+elEJE6qWHy2Hf4m7hjW30FQ8=</dsig:DigestValue>
+        <dsig:DigestValue>wnb+l88z7ofObV06GxPmrfgCML4H3U6iqilbWZqZD3c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Windows.Data;
 using AutoMapper;
@@ -13,6 +14,17 @@ namespace OutPatientApp.ViewModels
     {
         private readonly BindableCollection<Account> _accounts = new BindableCollection<Account>();
         private readonly IMapper _mapper;
+        private Account _selectedItem;
+
+        public Account SelectedItem
+        {
+            get { return _selectedItem; }
+            set
+            {
+                Set(ref _selectedItem, value);
+                _mapper.Map(value, this);
+            }
+        }
 
 
         private AccountType _accountType;
@@ -119,15 +131,40 @@ namespace OutPatientApp.ViewModels
                     db.SaveChanges();
                     _accounts.Add(added);
                 }
+                else
+                {
+                    var id = existingAccount.Id;
+                    _mapper.Map(account, existingAccount);
+                    existingAccount.Id = id;
+                    db.Entry(existingAccount).State = EntityState.Modified;
+                    _accounts.Remove(existingAccount);
+                    _accounts.Add(existingAccount);
+                    db.SaveChanges();
+                }
             }
         }
 
         public void NewItem()
         {
+            Id = Guid.NewGuid();
         }
 
         public void Delete()
         {
+            if (SelectedItem != null)
+            {
+                using (var db = new OPContext())
+                {
+                    var existing = db.Accounts.Find(SelectedItem.Id);
+                    if (existing != null)
+                    {
+                        db.Accounts.Remove(existing);
+                        db.SaveChanges();
+                    }
+
+                    _accounts.Remove(SelectedItem);
+                }
+            }
         }
     }
 }

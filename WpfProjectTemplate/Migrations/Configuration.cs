@@ -9,7 +9,7 @@ namespace OutPatientApp.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(OutPatientApp.Persistence.OPContext context)

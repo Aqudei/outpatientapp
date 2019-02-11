@@ -7,13 +7,13 @@ namespace OutPatientApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Next : IMigrationMetadata
+    public sealed partial class AddReport : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Next));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddReport));
         
         string IMigrationMetadata.Id
         {
-            get { return "201902062246484_Next"; }
+            get { return "201902092044347_AddReport"; }
         }
         
         string IMigrationMetadata.Source

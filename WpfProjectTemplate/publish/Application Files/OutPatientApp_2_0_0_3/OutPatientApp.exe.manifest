@@ -426,18 +426,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.VisualStudio.DebuggerVisualizers.dll" size="43408">
-      <assemblyIdentity name="Microsoft.VisualStudio.DebuggerVisualizers" version="10.0.0.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PGYfVOITuiQGBedBPFXuyFFQhGdzm7uR8sdCUbNNQSo=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="675240">
       <assemblyIdentity name="Newtonsoft.Json" version="12.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -450,14 +438,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OutPatientApp.exe" size="113664">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OutPatientApp.exe" size="104448">
       <assemblyIdentity name="OutPatientApp" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Cg8O3QUou3UsdBSUB1+iXDfJcOwgHnBAWqpSdp56Nfo=</dsig:DigestValue>
+        <dsig:DigestValue>Rzlhtl+1+ErIYex2T03Ve7Nzt2DLPeiaym51b8jA2lA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -593,13 +581,34 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="OutPatientApp.exe.config" size="2158">
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Xceed.Words.NET.dll" size="297984">
+      <assemblyIdentity name="Xceed.Words.NET" version="1.2.0.0" publicKeyToken="3E4669D2F30244F4" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>0VJhK//98THR4GczaieUrtHdOvzJlyMYnzqAF5qoepg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="MedicalRecordsDocTemplate.docx" size="31523">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>g9qrk8SqnEAMfbglWuKfz4VlK4KOo5+v+2yxB0SvkT8=</dsig:DigestValue>
+      <dsig:DigestValue>UDjKKe8VxWer0S1KRIuJJv1U7Nuyx77uVq/w22M3M1Y=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="OutPatientApp.exe.config" size="2203">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>l5L6d9uItda+4W9mJHmtXtJZUmd9ILutnNJqpWUiZ88=</dsig:DigestValue>
     </hash>
   </file>
   <file name="x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" size="1860">
