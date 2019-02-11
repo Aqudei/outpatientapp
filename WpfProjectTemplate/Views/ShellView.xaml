@@ -1,11 +1,40 @@
-﻿<mah:MetroWindow x:Class="OutPatientApp.Views.ShellView"
+﻿<mah:MetroWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:Converter="clr-namespace:OutPatientApp.Converter" x:Class="OutPatientApp.Views.ShellView"
         mc:Ignorable="d" Title="SPH Out-Patient Information Management System" WindowState="Maximized">
+    <mah:MetroWindow.Resources>
+
+        <Converter:ContentToVisibilityConverter x:Key="ContentToVisibilityConverter"/>
+
+    </mah:MetroWindow.Resources>
     <Grid>
-        <mah:MetroAnimatedSingleRowTabControl x:Name="Items"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding DateTime, StringFormat=\{0:F\}}" Grid.Column="1" Margin="4,0,8,0" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            <StackPanel Grid.Column="0" 
+                        Orientation="Horizontal" 
+                        Visibility="{Binding UserName, Converter={StaticResource ContentToVisibilityConverter}}" VerticalAlignment="Center">
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="24" Margin="8,0,0,0">
+                    <Run Text="You are logged in as: "/>
+                    <Run FontWeight="Bold" 
+                         Text="{Binding UserName}" 
+                         TextDecorations="Underline"/>
+                </TextBlock>
+
+            </StackPanel>
+        </Grid>
+        <mah:MetroAnimatedSingleRowTabControl x:Name="Items"
+                                              Grid.Row="1"/>
     </Grid>
 </mah:MetroWindow>

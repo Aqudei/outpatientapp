@@ -260,9 +260,9 @@
     </ApplicationDefinition>
     <Compile Include="Converter\ContentToVisibilityConverter.cs" />
     <Compile Include="Extentions.cs" />
-    <Compile Include="Migrations\201902092044347_AddReport.cs" />
-    <Compile Include="Migrations\201902092044347_AddReport.Designer.cs">
-      <DependentUpon>201902092044347_AddReport.cs</DependentUpon>
+    <Compile Include="Migrations\201902110531318_Inital.cs" />
+    <Compile Include="Migrations\201902110531318_Inital.Designer.cs">
+      <DependentUpon>201902110531318_Inital.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -382,8 +382,8 @@
     <Content Include="x86\sqlceme40.dll" />
     <Content Include="x86\sqlceqp40.dll" />
     <Content Include="x86\sqlcese40.dll" />
-    <EmbeddedResource Include="Migrations\201902092044347_AddReport.resx">
-      <DependentUpon>201902092044347_AddReport.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902110531318_Inital.resx">
+      <DependentUpon>201902110531318_Inital.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
