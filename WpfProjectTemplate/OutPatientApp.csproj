@@ -335,6 +335,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="ViewModels\SubmitDiagnosisViewModel.cs" />
     <Compile Include="Views\AccountsManagerView.xaml.cs">
       <DependentUpon>AccountsManagerView.xaml</DependentUpon>
     </Compile>

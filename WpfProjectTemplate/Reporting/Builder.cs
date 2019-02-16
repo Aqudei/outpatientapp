@@ -14,10 +14,12 @@ namespace OutPatientApp.Reporting
     class Builder
     {
         private readonly Guid _patientId;
+        private string _imageDirectory;
 
         public Builder(Guid patientId)
         {
             _patientId = patientId;
+            _imageDirectory = Properties.Settings.Default.PhotoDirectory;
         }
 
         public void Build()
@@ -32,11 +34,34 @@ namespace OutPatientApp.Reporting
 
                 using (var docx = DocX.Load(templatePath))
                 {
-                    docx.ReplaceText("{FullName}", $"{patient.FullName}");
+                    docx.ReplaceText("{FullName}", $"{patient.FullName ?? ""}");
                     docx.ReplaceText("{DateOfReport}", $"{DateTime.Now:D}");
-                    docx.ReplaceText("{Gender}", $"{patient.Sex}");
-                    docx.ReplaceText("{Address}", $"{patient.Address}");
-                    docx.ReplaceText("{ContactNumber}", $"{patient.ContactNumber}");
+                    docx.ReplaceText("{Gender}", $"{patient.Sex ?? ""}");
+                    docx.ReplaceText("{Address}", $"{patient.Address ?? ""}");
+                    docx.ReplaceText("{ContactNumber}", $"{patient.ContactNumber ?? ""}");
+
+                    var imagePath = Path.Combine(_imageDirectory, _patientId + ".png");
+                    if (File.Exists(imagePath))
+                    {
+                        var templatePicture = docx.Pictures.First();
+                        var existingWidth = templatePicture.Width;
+                        var existingHeight = templatePicture.Height;
+                        var image = docx.AddImage(imagePath);
+                        var picture = image.CreatePicture(existingHeight, existingWidth);
+
+                        foreach (var docxParagraph in docx.Paragraphs)
+                        {
+                            try
+                            {
+                                docxParagraph.ReplacePicture(templatePicture, picture);
+                            }
+                            catch (Exception)
+                            {
+                                break;
+                            }
+                        }
+                    }
+
 
                     var table = docx.Tables.Find(t => t.TableDescription.Contains("MedicalHistory"));
                     var templateRow = table.Rows[1];
@@ -46,8 +71,8 @@ namespace OutPatientApp.Reporting
                         var row = table.InsertRow(templateRow, 1);
                         row.ReplaceText("{DateOfCheckup}", $"{checkup.DateOfCheckup:g}");
                         row.ReplaceText("{Doctor}", doctor != null ? doctor.FullName : " ");
-                        row.ReplaceText("{Complaint}", checkup.Complaint);
-                        row.ReplaceText("{Diagnosis}", checkup.Diagnosis);
+                        row.ReplaceText("{Complaint}", checkup.Complaint ?? "");
+                        row.ReplaceText("{Diagnosis}", checkup.Diagnosis ?? "");
                     }
                     templateRow.Remove();
                     var fileName = Path.ChangeExtension(Path.GetTempFileName(), ".docx");

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             
              xmlns:local="clr-namespace:OutPatientApp.Views" Padding="8"
              xmlns:cal="http://www.caliburnproject.org"
              mc:Ignorable="d" FontSize="18" Width="600" >
@@ -22,6 +23,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition />
         </Grid.RowDefinitions>
         <StackPanel Grid.ColumnSpan="2" Grid.Column="1" Orientation="Vertical">
             <TextBlock FontWeight="Bold">
@@ -48,8 +50,19 @@
             <Label Content="Complaint:"/>
             <TextBlock VerticalAlignment="Center" x:Name="Complaint" Text="Love sick" TextWrapping="WrapWithOverflow" Width="200"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Right">
 
+        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Label Content="Diagnosis:"/>
+
+            <TextBlock VerticalAlignment="Top" 
+                       x:Name="Diagnosis" 
+                       Text="Tumar" 
+                       TextWrapping="WrapWithOverflow" 
+                       Width="200" Margin="0,5,0,0"/>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Right">
             <Button cal:Message.Attach="MarkAsDone($dataContext)" Content="Mark As Done" Margin="4" HorizontalContentAlignment="Right" />
             <Button cal:Message.Attach="SubmitDiagnosis($dataContext)" Content="Submit Diagnosis" Margin="4" HorizontalContentAlignment="Right" />
         </StackPanel>

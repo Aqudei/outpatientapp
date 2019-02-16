@@ -195,6 +195,8 @@ namespace OutPatientApp.ViewModels
                 var changed = value != _id;
                 Set(ref _id, value);
 
+                //NotifyOfPropertyChange(nameof(CanSave));
+
                 if (!changed)
                     return;
 
@@ -232,11 +234,14 @@ namespace OutPatientApp.ViewModels
             Id = Guid.Empty;
         }
 
+        //public bool CanSave => Id != Guid.Empty;
+
         public void Save()
         {
-            byte[] bytes;
-
             var patient = _mapper.Map<Patient>(this);
+            if (patient.Id == Guid.Empty)
+                patient.Id = Guid.NewGuid();
+
             if (_localWebcam != null && !string.IsNullOrWhiteSpace(_imageDirectory))
             {
                 var imagePath = Path.Combine(_imageDirectory, patient.Id + ".png");

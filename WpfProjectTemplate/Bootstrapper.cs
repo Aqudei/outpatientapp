@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows;
 using AutoMapper;
 using Caliburn.Micro;
@@ -38,6 +39,8 @@ namespace OutPatientApp
 
             Mapper.Initialize(config =>
             {
+                var imageDirectory = Properties.Settings.Default.PhotoDirectory;
+
                 config.CreateMap<AccountsManagerViewModel, Account>().ReverseMap();
                 config.CreateMap<Account, Account>().ForMember(m => m.Password, opts => opts.Ignore());
 
@@ -54,6 +57,7 @@ namespace OutPatientApp
                     .ForMember(m => m.Age, opt => opt.MapFrom(src => src.Patient.Age))
                     .ForMember(m => m.FullName, opt => opt.MapFrom(src => src.Patient.FullName))
                     .ForMember(m => m.Complaint, opt => opt.MapFrom(src => src.Complaint))
+                    .ForMember(m => m.PictureImage, opt => opt.MapFrom(src => Path.Combine(imageDirectory, src.PatientId + ".png")))
                     .ReverseMap();
             });
 

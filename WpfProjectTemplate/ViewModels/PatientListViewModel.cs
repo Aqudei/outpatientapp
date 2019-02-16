@@ -9,7 +9,9 @@ using System.Windows.Data;
 using AutoMapper;
 using Caliburn.Micro;
 using MahApps.Metro.Controls.Dialogs;
+using OutPatientApp.Models;
 using OutPatientApp.Persistence;
+using OutPatientApp.Reporting;
 
 namespace OutPatientApp.ViewModels
 {
@@ -49,6 +51,14 @@ namespace OutPatientApp.ViewModels
         {
             get => _searchText;
             set => Set(ref _searchText, value);
+        }
+
+        public void Modify(Patient patient)
+        {
+            var shellVm = Parent as ShellViewModel;
+            var patientRegistrationViewModel = IoC.Get<PatientRegistrationViewModel>();
+            patientRegistrationViewModel.Id = patient.Id;
+            shellVm.ActivateItem(patientRegistrationViewModel);
         }
 
         public void DoFilter()
@@ -117,7 +127,8 @@ namespace OutPatientApp.ViewModels
 
         public void Print(PatientDetailViewModel patient)
         {
-       
+            var builder = new Builder(patient.Id);
+            builder.Build();
         }
     }
 }
