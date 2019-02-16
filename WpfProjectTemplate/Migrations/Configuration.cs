@@ -27,7 +27,7 @@ namespace OutPatientApp.Migrations
                 {
                     UserName = "clerk",
                     AccountType = AccountType.Clerk,
-                    Birthday = DateTime.Parse("12/22/1989"),
+                    Birthday = new DateTime(1989,12,22),
                     FirstName = "Kiko",
                 };
                 entity2.SetPassword("clerk");
@@ -40,7 +40,7 @@ namespace OutPatientApp.Migrations
                 {
                     UserName = "admin",
                     AccountType = AccountType.ChiefNurse,
-                    Birthday = DateTime.Parse("12/22/1989"),
+                    Birthday = new DateTime(1989, 12, 22),
                     FirstName = "Kiko-Admin",
                 };
                 entity.SetPassword("admin");
@@ -53,7 +53,7 @@ namespace OutPatientApp.Migrations
                 {
                     UserName = "doctor",
                     AccountType = AccountType.Doctor,
-                    Birthday = DateTime.Parse("12/22/1989"),
+                    Birthday = new DateTime(1989, 12, 22),
                     FirstName = "Kiko-Doctor",
                 };
                 entity1.SetPassword("doctor");

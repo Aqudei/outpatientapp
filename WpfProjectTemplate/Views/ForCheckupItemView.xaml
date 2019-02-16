@@ -23,27 +23,35 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="FullName" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1">Almine, Francis Deo</TextBlock>
+        <StackPanel Grid.ColumnSpan="2" Grid.Column="1" Orientation="Vertical">
+            <TextBlock FontWeight="Bold">
+                <Run Text="Case Number: "/>
+                <Run Text="{Binding CaseNumber}"/>
+            </TextBlock>
+            <TextBlock x:Name="FullName" FontWeight="Bold" Height="24"><Run Text="Almine, Francis Deo"/></TextBlock>
+        </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-            <Label>Age:</Label>
+            <Label Content="Age:"/>
             <TextBlock VerticalAlignment="Center" x:Name="Age" Text="29"/>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" Margin="8,0,0,0">
-            <Label>Sex:</Label>
+            <Label Content="Sex:"/>
             <TextBlock VerticalAlignment="Center" x:Name="Sex" Text="Male"/>
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Grid.ColumnSpan="2">
-            <Label>Present Address:</Label>
+            <Label Content="Present Address:"/>
             <TextBlock VerticalAlignment="Center" x:Name="Address" Text="Purok 2, Brgy. Mercedes, Catbalogan City" TextWrapping="WrapWithOverflow" Width="200"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" Grid.ColumnSpan="2">
-            <Label>Complaints:</Label>
-            <TextBlock VerticalAlignment="Center" x:Name="Complaints" Text="Masakit and heart sa tuwing naaalala ko siya" TextWrapping="WrapWithOverflow" Width="200"/>
+            <Label Content="Complaint:"/>
+            <TextBlock VerticalAlignment="Center" x:Name="Complaint" Text="Love sick" TextWrapping="WrapWithOverflow" Width="200"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Center">
-            <Button Background="#FFFFABAB" cal:Message.Attach="Delete($dataContext)" FontSize="18">Delete</Button>
+        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Right">
+
+            <Button cal:Message.Attach="MarkAsDone($dataContext)" Content="Mark As Done" Margin="4" HorizontalContentAlignment="Right" />
+            <Button cal:Message.Attach="SubmitDiagnosis($dataContext)" Content="Submit Diagnosis" Margin="4" HorizontalContentAlignment="Right" />
         </StackPanel>
 
         <Image Grid.Column="0" 

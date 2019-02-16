@@ -26,7 +26,7 @@ namespace OutPatientApp.Models
         public string LastName { get; set; }
         public string Sex { get; set; }
         public string Specialization { get; set; }
-
+        
         public string FullName
         {
             get

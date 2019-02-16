@@ -49,6 +49,16 @@ namespace OutPatientApp.ViewModels
             Items.Filter = o => true;
         }
 
+        public void SubmitDiagnosis(ForCheckupItemViewModel checkupItemViewModel)
+        {
+
+        }
+
+        public void MarkAsDone(ForCheckupItemViewModel checkupItemViewModel)
+        {
+
+        }
+        
         public ForCheckupListViewModel(LoginViewModel loginViewModel, IMapper mapper)
         {
             _mapper = mapper;
@@ -59,10 +69,12 @@ namespace OutPatientApp.ViewModels
 
             using (var db = new OPContext())
             {
-                _checkups.AddRange(db.Checkups.Include("Patient")
+                var chekups = db.Checkups.Include("Patient")
                     .Where(c => c.DoctorId == loginViewModel.Account.Id && !c.IsDone)
-                    .ToList()
-                    .Select(c => _mapper.Map<ForCheckupItemViewModel>(c)));
+                    .ToList();
+                if (chekups.Any())
+                    _checkups.AddRange(chekups
+                        .Select(c => _mapper.Map<ForCheckupItemViewModel>(c)));
             }
         }
 

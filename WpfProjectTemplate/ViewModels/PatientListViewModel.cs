@@ -36,8 +36,7 @@ namespace OutPatientApp.ViewModels
 
             Patients = CollectionViewSource.GetDefaultView(_patients);
 
-            _imageDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                "SPHOutPatient");
+            _imageDirectory = Properties.Settings.Default.PhotoDirectory;
             Directory.CreateDirectory(_imageDirectory);
         }
 

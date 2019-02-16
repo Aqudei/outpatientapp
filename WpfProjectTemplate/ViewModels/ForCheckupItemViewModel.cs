@@ -10,7 +10,7 @@ namespace OutPatientApp.ViewModels
         public string FullName { get; set; }
         public int Age { get; set; }
         public string Address { get; set; }
-        public string Complaints { get; set; }
+        public string Complaint { get; set; }
         public string CaseNumber { get; set; }
     }
 }

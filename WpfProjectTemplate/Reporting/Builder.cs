@@ -46,7 +46,7 @@ namespace OutPatientApp.Reporting
                         var row = table.InsertRow(templateRow, 1);
                         row.ReplaceText("{DateOfCheckup}", $"{checkup.DateOfCheckup:g}");
                         row.ReplaceText("{Doctor}", doctor != null ? doctor.FullName : " ");
-                        row.ReplaceText("{Complaints}", checkup.Complaint);
+                        row.ReplaceText("{Complaint}", checkup.Complaint);
                         row.ReplaceText("{Diagnosis}", checkup.Diagnosis);
                     }
                     templateRow.Remove();

@@ -129,11 +129,8 @@ namespace OutPatientApp.ViewModels
             _localWebcam.NewFrame += _localWebcam_NewFrame;
             _localWebcam.Start();
 
-            _imageDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                "SPHOutPatient");
+            _imageDirectory = Properties.Settings.Default.PhotoDirectory;
             Directory.CreateDirectory(_imageDirectory);
-
-
 
             Application.Current.Exit += Current_Exit;
         }
@@ -237,17 +234,21 @@ namespace OutPatientApp.ViewModels
 
         public void Save()
         {
+            byte[] bytes;
+
             var patient = _mapper.Map<Patient>(this);
             if (_localWebcam != null && !string.IsNullOrWhiteSpace(_imageDirectory))
             {
                 var imagePath = Path.Combine(_imageDirectory, patient.Id + ".png");
                 PictureImage?.SaveImage(imagePath);
+                //PictureImage.ToBytes();
             }
 
 
             using (var db = new OPContext())
             {
                 var p = db.Patients.Find(Id);
+
                 if (p == null)
                 {
                     db.Patients.Add(patient);

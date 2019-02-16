@@ -22,5 +22,17 @@ namespace OutPatientApp.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Dell\\AppData\\Roaming\\SPHOutPatient")]
+        public string PhotoDirectory {
+            get {
+                return ((string)(this["PhotoDirectory"]));
+            }
+            set {
+                this["PhotoDirectory"] = value;
+            }
+        }
     }
 }

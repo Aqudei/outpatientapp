@@ -33,6 +33,8 @@ namespace OutPatientApp.Models
         public int Age => (int)(Birthday.HasValue ? (DateTime.Now - Birthday.Value).TotalDays / 365 : 0);
         public string ContactNumber { get; set; }
 
+        public byte[] Photo { get; set; }
+
         public Patient()
         {
             LastUpdated = DateTime.Now;

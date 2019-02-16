@@ -48,6 +48,13 @@ namespace OutPatientApp
 
                 config.CreateMap<Patient, PatientDetailViewModel>()
                     .ForMember(m => m.FullName, opts => opts.MapFrom(p => $"{p.LastName}, {p.FirstName} {p.MiddleName}"));
+
+                config.CreateMap<Checkup, ForCheckupItemViewModel>()
+                    .ForMember(m => m.Address, opt => opt.MapFrom(src => src.Patient.Address))
+                    .ForMember(m => m.Age, opt => opt.MapFrom(src => src.Patient.Age))
+                    .ForMember(m => m.FullName, opt => opt.MapFrom(src => src.Patient.FullName))
+                    .ForMember(m => m.Complaint, opt => opt.MapFrom(src => src.Complaint))
+                    .ReverseMap();
             });
 
             _container.RegisterInstance(Mapper.Instance);

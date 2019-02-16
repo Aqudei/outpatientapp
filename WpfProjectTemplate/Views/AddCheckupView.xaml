@@ -42,7 +42,7 @@
                    FontWeight="Thin" FontFamily="Arial"
                    FontStretch="UltraExpanded" 
                    Visibility="{Binding Message, Converter={StaticResource ContentToVisibilityConverter}}"
-                   HorizontalAlignment="Right" TextAlignment="Right" Background="#FFC0FCB4"/>
+                   HorizontalAlignment="Right" TextAlignment="Right" Background="#FF626960" Foreground="Black"/>
         <Label Content="Case Number:" HorizontalAlignment="Left" Margin="15,38,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="CaseNumber_Display"
             HorizontalAlignment="Left" Height="23" Margin="128,38,0,0"

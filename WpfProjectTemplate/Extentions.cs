@@ -28,6 +28,19 @@ namespace OutPatientApp
             }
         }
 
+        public static byte[] ToBytes(this BitmapImage bitmapImage)
+        {
+            byte[] data;
+            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(bitmapImage));
+            using (MemoryStream ms = new MemoryStream())
+            {
+                encoder.Save(ms);
+                data = ms.ToArray();
+                return data;
+            }
+        }
+
         public static BitmapImage ToBitmapImage(this Bitmap bitmap)
         {
             try
