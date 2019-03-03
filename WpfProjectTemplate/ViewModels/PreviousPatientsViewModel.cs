@@ -29,6 +29,7 @@ namespace OutPatientApp.ViewModels
 
         protected override void OnViewReady(object view)
         {
+            _checkups.Clear();
             using (var db = new OPContext())
             {
                 _checkups.AddRange(db.Checkups.Include("Patient")
