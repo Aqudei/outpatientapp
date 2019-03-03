@@ -82,6 +82,7 @@ namespace OutPatientApp.ViewModels
                     if (vm.Account.AccountType == AccountType.Doctor)
                     {
                         ActivateItem(IoC.Get<ForCheckupListViewModel>());
+                        ActivateItem(IoC.Get<PreviousPatientsViewModel>());
                     }
 
                     UserName = vm.Account.UserName;

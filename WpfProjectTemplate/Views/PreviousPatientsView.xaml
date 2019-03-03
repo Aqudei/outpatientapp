@@ -7,6 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <DataGrid ItemsSource="{Binding Items}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Patient" Binding="{Binding Patient.FullName}"/>
+                <DataGridTextColumn Width="*" Header="Case Number" Binding="{Binding CaseNumber}"/>
+                <DataGridTextColumn Width="*" Header="Date Of Checkup" Binding="{Binding DateOfCheckup}"/>
+                <DataGridTextColumn Width="*" Header="Complaint" Binding="{Binding Complaint}"/>
+                <DataGridTextColumn Width="*" Header="Diagnosis" Binding="{Binding Diagnosis}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

@@ -285,6 +285,7 @@
     <Compile Include="ViewModels\AddCheckupViewModel.cs" />
     <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\CheckupListViewModel.cs" />
+    <Compile Include="ViewModels\DoctorsPreviousCheckup.cs" />
     <Compile Include="ViewModels\ForCheckupListViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\PatientDetailViewModel.cs" />
