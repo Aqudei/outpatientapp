@@ -44,6 +44,12 @@ namespace OutPatientApp.ViewModels
             set => Set(ref _userName, value);
         }
 
+        public void Logout()
+        {
+            System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+            Application.Current.Shutdown();
+        }
+
         protected override void OnViewReady(object view)
         {
             //            var settings = new Dictionary<string, object>();

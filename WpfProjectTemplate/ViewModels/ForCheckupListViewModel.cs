@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -110,25 +111,51 @@ namespace OutPatientApp.ViewModels
 
         private void ReloadData()
         {
-            _checkups.Clear();
+            //_checkups.Clear();
 
             using (var db = new OPContext())
             {
-                var chekups = db.Checkups.Include("Patient")
+                var fromDbCheckups = db.Checkups.Include("Patient")
                     .Where(c => c.DoctorId == _loginViewModel.Account.Id && !c.IsDone)
                     .ToList();
 
-
-                if (chekups.Any())
+                if (!fromDbCheckups.Any())
                 {
-                    var selectedId = SelectedItem?.Id;
-                    _checkups.AddRange(chekups
-                        .Select(c => _mapper.Map<ForCheckupItemViewModel>(c)));
+                    _checkups.Clear();
+                    return;
+                }
 
-                    if (selectedId.HasValue)
+
+                var selectedId = SelectedItem?.Id;
+
+                var toDelete = _checkups.Where(c => !fromDbCheckups.Select(cu => cu.Id).Contains(c.Id)).ToList();
+                if (toDelete.Any())
+                    _checkups.RemoveRange(toDelete);
+
+                foreach (var fromDbCheckup in fromDbCheckups)
+                {
+                    var viewCheckup = _checkups.FirstOrDefault(c => c.Id == fromDbCheckup.Id);
+                    if (viewCheckup == null)
                     {
-                        SelectedItem = _checkups.FirstOrDefault(c => c.Id == selectedId);
+                        _checkups.Add(_mapper.Map<ForCheckupItemViewModel>(fromDbCheckup));
                     }
+                    else
+                    {
+                        var viewCheckupViewModel = _mapper.Map<ForCheckupItemViewModel>(fromDbCheckup);
+                        if (viewCheckupViewModel.Equals(viewCheckup))
+                            return;
+
+                        _checkups.Remove(viewCheckup);
+                        _checkups.Add(viewCheckupViewModel);
+                    }
+                }
+
+                //_checkups.AddRange(checkups
+                //    .Select(c => _mapper.Map<ForCheckupItemViewModel>(c)));
+
+                if (selectedId.HasValue)
+                {
+                    SelectedItem = _checkups.FirstOrDefault(c => c.Id == selectedId);
                 }
             }
         }
@@ -137,8 +164,15 @@ namespace OutPatientApp.ViewModels
         {
             while (true)
             {
-                Thread.Sleep(2000);
-                ReloadData();
+                try
+                {
+                    Thread.Sleep(2000);
+                    ReloadData();
+                }
+                catch (Exception exception)
+                {
+                    Debug.WriteLine("Error _backgroundWorker_DoWork(): " + exception.Message);
+                }
             }
         }
     }

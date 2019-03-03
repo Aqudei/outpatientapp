@@ -35,9 +35,11 @@ namespace OutPatientApp.Reporting
                 using (var docx = DocX.Load(templatePath))
                 {
                     docx.ReplaceText("{FullName}", $"{patient.FullName ?? ""}");
+                    docx.ReplaceText("{ContactNumber}", $"{patient.ContactNumber ?? ""}");
                     docx.ReplaceText("{DateOfReport}", $"{DateTime.Now:D}");
                     docx.ReplaceText("{Gender}", $"{patient.Sex ?? ""}");
                     docx.ReplaceText("{Address}", $"{patient.Address ?? ""}");
+                    docx.ReplaceText("{Age}", $"{patient.Age}");
                     docx.ReplaceText("{ContactNumber}", $"{patient.ContactNumber ?? ""}");
 
                     var imagePath = Path.Combine(_imageDirectory, _patientId + ".png");

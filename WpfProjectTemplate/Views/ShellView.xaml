@@ -31,7 +31,8 @@
                          Text="{Binding UserName}" 
                          TextDecorations="Underline"/>
                 </TextBlock>
-
+                <Button VerticalAlignment="Center" 
+                        x:Name="Logout" Content="Logout" Margin="4,0,0,0"/>
             </StackPanel>
         </Grid>
         <mah:MetroAnimatedSingleRowTabControl x:Name="Items"

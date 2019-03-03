@@ -147,6 +147,9 @@ namespace OutPatientApp.ViewModels
         public void NewItem()
         {
             Id = Guid.NewGuid();
+            FirstName = "";
+            LastName = "";
+            UserName = "";
         }
 
         public void Delete()

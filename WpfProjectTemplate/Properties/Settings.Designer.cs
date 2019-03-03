@@ -25,7 +25,7 @@ namespace OutPatientApp.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Dell\\AppData\\Roaming\\SPHOutPatient")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\SPHOutPatient")]
         public string PhotoDirectory {
             get {
                 return ((string)(this["PhotoDirectory"]));

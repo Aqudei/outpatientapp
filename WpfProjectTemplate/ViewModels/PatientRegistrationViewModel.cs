@@ -41,6 +41,12 @@ namespace OutPatientApp.ViewModels
         private BitmapImage _bitmapImage;
         public override string DisplayName { get; set; } = "Out-Patient Registration";
 
+        public string ContactNumber
+        {
+            get => _contactNumber;
+            set => Set(ref _contactNumber, value);
+        }
+
         public string LastName
         {
             get => _lastName;
@@ -176,6 +182,7 @@ namespace OutPatientApp.ViewModels
         private string _imageDirectory;
         private CameraState _cameraState = CameraState.Standby;
         private Guid _id;
+        private string _contactNumber;
 
         public void ResetCapture()
         {

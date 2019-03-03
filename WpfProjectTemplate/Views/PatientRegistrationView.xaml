@@ -12,7 +12,7 @@
             <TextBox x:Name="LastName" HorizontalAlignment="Left" Margin="33,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Last Name"/>
             <TextBox x:Name="FirstName" HorizontalAlignment="Left" Margin="33,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="First Name"/>
             <TextBox x:Name="MiddleName" HorizontalAlignment="Left" Margin="33,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Middle Name"/>
-            <TextBox x:Name="Address" HorizontalAlignment="Left" Margin="33,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="688" mah:TextBoxHelper.Watermark="Address"/>
+            <TextBox x:Name="Address" HorizontalAlignment="Left" Margin="33,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="688" mah:TextBoxHelper.Watermark="Address" Height="51"/>
             <ComboBox x:Name="Sexes" 
                       SelectedItem="{Binding Sex}"
                       HorizontalAlignment="Left" 
@@ -23,12 +23,14 @@
             <TextBox x:Name="NextKin" HorizontalAlignment="Left" Margin="428,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Next Of Kin"/>
             <TextBox x:Name="KinRelationship" HorizontalAlignment="Left" Margin="428,194,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Relationship"/>
             <DatePicker x:Name="Birthday" HorizontalAlignment="Left" Margin="33,195,0,0" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Birthday"/>
-            <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="646,310,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="920,356,0,0" VerticalAlignment="Top" Width="149"/>
             <Border HorizontalAlignment="Left" Height="250" Margin="751,32,0,0" VerticalAlignment="Top" Width="318" BorderBrush="Black" BorderThickness="1">
                 <Image x:Name="PictureImage" Stretch="UniformToFill" />
             </Border>
             <Button x:Name="CaptureImage" Content="Capture Image" HorizontalAlignment="Left" Margin="920,310,0,0" VerticalAlignment="Top" Width="149"/>
             <Button x:Name="ResetCapture" Content="Reset Capture" HorizontalAlignment="Left" Margin="751,310,0,0" VerticalAlignment="Top" Width="149"/>
+            <TextBox x:Name="ContactNumber" 
+                     HorizontalAlignment="Left" Margin="428,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Contact Number"/>
 
         </Grid>
     </GroupBox>

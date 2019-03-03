@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="PhotoDirectory" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\Dell\AppData\Roaming\SPHOutPatient</Value>
+      <Value Profile="(Default)">C:\SPHOutPatient</Value>
     </Setting>
   </Settings>
 </SettingsFile>
