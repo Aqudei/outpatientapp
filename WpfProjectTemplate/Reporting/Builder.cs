@@ -40,7 +40,7 @@ namespace OutPatientApp.Reporting
                     docx.ReplaceText("{Relation}", $"{patient.KinRelationship ?? ""}");
                     docx.ReplaceText("{Birthday}", $"{patient.Birthday?.ToShortDateString() ?? ""}");
                     docx.ReplaceText("{DateOfReport}", $"{DateTime.Now:D}");
-                    docx.ReplaceText("{Gender}", $"{patient.Sex ?? ""}");
+                    docx.ReplaceText("{Sex}", $"{patient.Sex ?? ""}");
                     docx.ReplaceText("{Address}", $"{patient.Address ?? ""}");
                     docx.ReplaceText("{Age}", $"{patient.Age}");
                     docx.ReplaceText("{ContactNumber}", $"{patient.ContactNumber ?? ""}");
@@ -76,7 +76,7 @@ namespace OutPatientApp.Reporting
                         var row = table.InsertRow(templateRow, 1);
                         row.ReplaceText("{DateOfCheckup}", $"{checkup.DateOfCheckup:g}");
                         row.ReplaceText("{Doctor}", doctor != null ? doctor.FullName : " ");
-                        row.ReplaceText("{Complaint}", checkup.Complaint ?? "");
+                        row.ReplaceText("{Complaints}", checkup.Complaint ?? "");
                         row.ReplaceText("{Diagnosis}", checkup.Diagnosis ?? "");
                     }
                     templateRow.Remove();
