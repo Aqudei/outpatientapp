@@ -54,7 +54,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Center" Margin="128,0,0,0">
             <Button cal:Message.Attach="Edit($dataContext)" Margin="4,0">Edit</Button>
-            <Button cal:Message.Attach="Delete($dataContext)" Margin="4,0">Delete</Button>
+            <!--<Button cal:Message.Attach="Delete($dataContext)" Margin="4,0">Delete</Button>-->
             <Button cal:Message.Attach="AddCheckup($dataContext)" Margin="4,0" Content="New Checkup"/>
             <Button cal:Message.Attach="ViewCheckups($dataContext)" Margin="4,0">View Checkups</Button>
             <Button cal:Message.Attach="Print($dataContext)" 

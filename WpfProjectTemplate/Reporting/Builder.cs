@@ -36,6 +36,9 @@ namespace OutPatientApp.Reporting
                 {
                     docx.ReplaceText("{FullName}", $"{patient.FullName ?? ""}");
                     docx.ReplaceText("{ContactNumber}", $"{patient.ContactNumber ?? ""}");
+                    docx.ReplaceText("{NextOfKin}", $"{patient.NextKin ?? ""}");
+                    docx.ReplaceText("{Relation}", $"{patient.KinRelationship ?? ""}");
+                    docx.ReplaceText("{Birthday}", $"{patient.Birthday?.ToShortDateString() ?? ""}");
                     docx.ReplaceText("{DateOfReport}", $"{DateTime.Now:D}");
                     docx.ReplaceText("{Gender}", $"{patient.Sex ?? ""}");
                     docx.ReplaceText("{Address}", $"{patient.Address ?? ""}");

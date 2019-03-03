@@ -17,7 +17,7 @@
                     <TextBox Width="320" x:Name="SearchText"></TextBox>
                     <Button x:Name="DoFilter" Background="#FFA0D6F6">Search</Button>
                 </StackPanel>
-                <ListView  x:Name="Patients" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1">
+                <ListView  x:Name="Patients" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.Row="1" Margin="0,2.8,0.4,-2.8">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel/>

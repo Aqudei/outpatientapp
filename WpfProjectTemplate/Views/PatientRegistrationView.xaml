@@ -30,7 +30,17 @@
             <Button x:Name="CaptureImage" Content="Capture Image" HorizontalAlignment="Left" Margin="920,310,0,0" VerticalAlignment="Top" Width="149"/>
             <Button x:Name="ResetCapture" Content="Reset Capture" HorizontalAlignment="Left" Margin="751,310,0,0" VerticalAlignment="Top" Width="149"/>
             <TextBox x:Name="ContactNumber" 
-                     HorizontalAlignment="Left" Margin="428,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Contact Number"/>
+                     HorizontalAlignment="Left" Margin="428,252,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293" mah:TextBoxHelper.Watermark="Contact Number"/>
+            <Label Content="Last Name:" HorizontalAlignment="Left" Margin="33,6,0,0" VerticalAlignment="Top" FontSize="12"/>
+            <Label Content="First Name:" HorizontalAlignment="Left" Margin="33,58,0,0" VerticalAlignment="Top" FontSize="12"/>
+            <Label Content="Middle Name:" HorizontalAlignment="Left" Margin="33,112,0,0" VerticalAlignment="Top" FontSize="12"/>
+            <Label Content="Birthday:" HorizontalAlignment="Left" Margin="33,169,0,0" VerticalAlignment="Top" FontSize="12"/>
+            <Label Content="Address:" HorizontalAlignment="Left" Margin="33,261,0,0" VerticalAlignment="Top" FontSize="12"/>
+            <Label Content="Contact Number:" HorizontalAlignment="Left" Margin="428,226,0,0" VerticalAlignment="Top" FontSize="12"/>
+            <Label Content="Relationship:" HorizontalAlignment="Left" Margin="428,170,0,0" VerticalAlignment="Top" FontSize="12"/>
+            <Label Content="Next Of Kin:" HorizontalAlignment="Left" Margin="428,113,0,0" VerticalAlignment="Top" FontSize="12"/>
+            <Label Content="Place Of Birth:" HorizontalAlignment="Left" Margin="428,59,0,0" VerticalAlignment="Top" FontSize="12"/>
+            <Label Content="Sex:" HorizontalAlignment="Left" Margin="428,6,0,0" VerticalAlignment="Top" FontSize="12"/>
 
         </Grid>
     </GroupBox>

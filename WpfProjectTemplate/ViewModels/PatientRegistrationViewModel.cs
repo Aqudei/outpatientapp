@@ -249,7 +249,8 @@ namespace OutPatientApp.ViewModels
             if (patient.Id == Guid.Empty)
                 patient.Id = Guid.NewGuid();
 
-            if (_localWebcam != null && !string.IsNullOrWhiteSpace(_imageDirectory))
+            if (_localWebcam != null && !string.IsNullOrWhiteSpace(_imageDirectory)
+                                     && CameraState == CameraState.Captured)
             {
                 var imagePath = Path.Combine(_imageDirectory, patient.Id + ".png");
                 PictureImage?.SaveImage(imagePath);
