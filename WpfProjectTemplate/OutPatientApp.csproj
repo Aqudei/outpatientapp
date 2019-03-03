@@ -283,18 +283,24 @@
     <Compile Include="Services\CaseNumberGen.cs" />
     <Compile Include="ViewModels\AccountsManagerViewModel.cs" />
     <Compile Include="ViewModels\AddCheckupViewModel.cs" />
+    <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\CheckupListViewModel.cs" />
     <Compile Include="ViewModels\ForCheckupListViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\PatientDetailViewModel.cs" />
     <Compile Include="ViewModels\PatientListViewModel.cs" />
     <Compile Include="ViewModels\PatientRegistrationViewModel.cs" />
+    <Compile Include="ViewModels\PreviousPatientsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Page Include="Views\AccountsManagerView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\AddCheckupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChangePasswordView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -326,6 +332,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PreviousPatientsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -341,6 +351,9 @@
     </Compile>
     <Compile Include="Views\AddCheckupView.xaml.cs">
       <DependentUpon>AddCheckupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChangePasswordView.xaml.cs">
+      <DependentUpon>ChangePasswordView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CheckupListView.xaml.cs">
       <DependentUpon>CheckupListView.xaml</DependentUpon>
@@ -363,6 +376,9 @@
     </Compile>
     <Compile Include="Views\PatientRegistrationView.xaml.cs">
       <DependentUpon>PatientRegistrationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PreviousPatientsView.xaml.cs">
+      <DependentUpon>PreviousPatientsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
@@ -407,6 +423,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Content Include="MedicalRecordsDocTemplate.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PatientSlip.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
