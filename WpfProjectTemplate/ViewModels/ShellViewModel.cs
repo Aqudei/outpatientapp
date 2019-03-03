@@ -50,6 +50,11 @@ namespace OutPatientApp.ViewModels
             Application.Current.Shutdown();
         }
 
+        public void ChangePassword()
+        {
+            _windowManager.ShowDialog(IoC.Get<ChangePasswordViewModel>());
+        }
+
         protected override void OnViewReady(object view)
         {
             //            var settings = new Dictionary<string, object>();

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using OutPatientApp.ViewModels;
 
 namespace OutPatientApp.Views
 {
@@ -23,6 +24,18 @@ namespace OutPatientApp.Views
         public ChangePasswordView()
         {
             InitializeComponent();
+        }
+
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            var vm = DataContext as ChangePasswordViewModel;
+            vm.Password = Password.Password;
+        }
+
+        private void PasswordCopy_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            var vm = DataContext as ChangePasswordViewModel;
+            vm.PasswordCopy = PasswordCopy.Password;
         }
     }
 }
