@@ -279,6 +279,7 @@
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Persistence\OPContext.cs" />
     <Compile Include="Models\Checkup.cs" />
+    <Compile Include="Reporting\DiagnosisSlipBuilder.cs" />
     <Compile Include="Reporting\PatientSlipBuilder.cs" />
     <Compile Include="Reporting\ProfileBuilder.cs" />
     <Compile Include="Services\CaseNumberGen.cs" />

@@ -13,6 +13,7 @@ using Caliburn.Micro;
 using MahApps.Metro.Controls.Dialogs;
 using OutPatientApp.Models;
 using OutPatientApp.Persistence;
+using OutPatientApp.Reporting;
 
 namespace OutPatientApp.ViewModels
 {
@@ -76,6 +77,8 @@ namespace OutPatientApp.ViewModels
                 cu.Diagnosis = rslt;
                 db.Entry(cu).State = EntityState.Modified;
                 db.SaveChanges();
+                var diagnosisSlipBuilder = new DiagnosisSlipBuilder(cu.PatientId, cu.Id);
+                diagnosisSlipBuilder.Build();
             }
         }
 
