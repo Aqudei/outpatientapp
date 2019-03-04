@@ -127,7 +127,7 @@ namespace OutPatientApp.ViewModels
 
         public void Print(PatientDetailViewModel patient)
         {
-            var builder = new Builder(patient.Id);
+            var builder = new ProfileBuilder(patient.Id);
             builder.Build();
         }
     }

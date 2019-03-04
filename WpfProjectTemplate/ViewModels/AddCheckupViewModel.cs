@@ -3,6 +3,7 @@ using System.Linq;
 using Caliburn.Micro;
 using OutPatientApp.Models;
 using OutPatientApp.Persistence;
+using OutPatientApp.Reporting;
 using OutPatientApp.Services;
 
 namespace OutPatientApp.ViewModels
@@ -19,6 +20,7 @@ namespace OutPatientApp.ViewModels
         public AddCheckupViewModel(CaseNumberGen caseNumberGen)
         {
             _caseNumberGen = caseNumberGen;
+
 
             DisplayName = "Schedule New Checkup";
         }
@@ -65,17 +67,22 @@ namespace OutPatientApp.ViewModels
         {
             using (var db = new OPContext())
             {
-                db.Checkups.Add(new Checkup
+                var newCheckup = new Checkup
                 {
                     CaseNumber = CaseNumber.ToString(),
                     Complaint = Complaint,
                     PatientId = PatientId,
                     DoctorId = SelectedDoctor != null ? SelectedDoctor.Id : Guid.Empty
-                });
+                };
+
+                db.Checkups.Add(newCheckup);
 
                 db.SaveChanges();
 
                 Message = "Checkup successfully added";
+
+                var patientSlipBuilder = new PatientSlipBuilder(PatientId, newCheckup.Id);
+                patientSlipBuilder.Build();
             }
         }
 

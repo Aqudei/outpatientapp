@@ -11,12 +11,12 @@ using Xceed.Words.NET;
 
 namespace OutPatientApp.Reporting
 {
-    class Builder
+    class ProfileBuilder
     {
         private readonly Guid _patientId;
         private string _imageDirectory;
 
-        public Builder(Guid patientId)
+        public ProfileBuilder(Guid patientId)
         {
             _patientId = patientId;
             _imageDirectory = Properties.Settings.Default.PhotoDirectory;

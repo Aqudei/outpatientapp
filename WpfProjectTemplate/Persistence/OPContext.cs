@@ -10,6 +10,7 @@ namespace OutPatientApp.Persistence
 {
     class OPContext : DbContext
     {
+
         public OPContext() : base("OPContext")
         { }
 
